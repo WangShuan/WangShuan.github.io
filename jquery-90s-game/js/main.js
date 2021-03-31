@@ -109,13 +109,18 @@ function stopCount() {
 
 //結束畫面
 function down() {
+  // 移除所有水滴
   $(".dot").remove();
+  // 移除無敵狀態
   $("#p1").removeClass("super");
+  // 移除中毒狀態
   $("#p1").children($("img")).removeClass("hell");
+  // 讓香菇角色回到畫面開始的地方
   $("#p1").css({
     top: "300px",
     left: "100px",
   });
+  // 香菇死掉了 讓香菇角色從畫面縮小至消失 並改變背景
   if (D >= 3) {
     $("#p1")
       .children($("img"))
@@ -141,7 +146,8 @@ function down() {
         }
       );
   } else {
-    $("#p1").children($("img")).removeClass("hell");
+    // 通關成功 香菇成功扎根
+    // 讓香菇角色上下跳兩下後改變背景
     $("#p1")
       .animate({
         top: "250px",
@@ -175,7 +181,7 @@ function down() {
   }
 }
 
-//讓香菇可以移動
+//讓香菇可以通過鍵盤的左右方向鍵移動
 function game() {
   $(document).keydown(function (event) {
     var keyNum = event.which;
@@ -211,15 +217,17 @@ $("#start").on("click", function () {
   }, 2000);
 });
 
-//點擊再玩一次重新開始
+//點擊再玩一次重新開始(重整頁面)
 $("#again").on("click", function () {
   location.reload();
 });
 
+// 遊戲說明(點擊後收合說明)
 $("#Introduction").on("click", function () {
   $(".Introduction").toggle();
 });
 
+// 計時五秒後移除無敵效果
 $(function () {
   setInterval(function () {
     if (s == c + 5) {
