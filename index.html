@@ -1,156 +1,203 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Jekyll v3.8.5" />
+    <title>WangShuan's Portfolio</title>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Jekyll v3.8.5">
-  <title>WangShuan's Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <style>
+      .inverse {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
-  <style>
-    .inverse {
-      transform: rotate(180deg);
-    }
-
-  </style>
-</head>
-
-<body>
-  <header>
-
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-          <strong>WangShuan's Portfolio</strong>
-        </a>
-
-      </div>
-    </div>
-  </header>
-
-  <main role="main">
-
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">About Me</h1>
-        <p class="lead text-muted">於2019年2月份第一次開始接觸前端工作領域，目前會的程式有 jQuery 、 vue.js 、 Node.js 、 Sass 等。<br>
-          於2019年7月參加六角學院舉辦的 The F2E 闖關活動，並於2019年10月1日獲得通關證書(完成共計9道關卡)。<br>
-          該頁面皆是我於學習過程中逐漸獨立完成的作品，歡迎點擊並前往瀏覽網站。</p>
-      </div>
-    </section>
-
-    <div id="app" class="container">
-
-      <div class="row">
-        <div class="col-12">
-          <button class="btn btn-link float-right text-dark mb-2" @click="isReverse = !isReverse">排序：最後更新
-            <span class="d-inline-block ml-2" :class="{'inverse': isReverse }">
-              <i class=" fas fa-angle-down"></i>
-            </span>
-          </button>
+  <body>
+    <header>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <strong>WangShuan's Portfolio</strong>
+          </a>
         </div>
-        <div v-for="item in sort" class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" style="height: 250px;" :src="item.img" alt="">
-            <div class="card-body border">
-              <p class="card-text">{{item.name}}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a :href="item.view" class="btn btn-sm btn-outline-secondary">作品網址</a>
-                  <a :href="item.source" class="btn btn-sm btn-outline-secondary">原始碼</a>
-                </div> <small class="text-muted">最後更新 {{item.lastUpdate}}</small>
+      </div>
+    </header>
+
+    <main role="main">
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">About Me</h1>
+          <p class="lead text-muted">
+            於2019年2月份第一次開始接觸前端工作領域，目前會的程式有 jQuery 、
+            vue.js 、 Node.js 、 Sass 等。<br />
+            於2019年7月參加六角學院舉辦的 The F2E
+            闖關活動，並於2019年10月1日獲得通關證書(完成共計9道關卡)。<br />
+            該頁面皆是我於學習過程中逐漸獨立完成的作品，歡迎點擊並前往瀏覽網站。
+          </p>
+        </div>
+      </section>
+
+      <div id="app" class="container">
+        <div class="row">
+          <div class="col-12">
+            <button
+              class="btn btn-link float-right text-dark mb-2"
+              @click="isReverse = !isReverse"
+            >
+              排序：最後更新
+              <span
+                class="d-inline-block ml-2"
+                :class="{'inverse': isReverse }"
+              >
+                <i class="fas fa-angle-down"></i>
+              </span>
+            </button>
+          </div>
+          <div v-for="item in sort" class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img
+                class="card-img-top"
+                style="height: 250px"
+                :src="item.img"
+                alt=""
+              />
+              <div class="card-body border">
+                <p class="card-text">{{item.name}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a
+                      :href="item.view"
+                      class="btn btn-sm btn-outline-secondary"
+                      >作品網址</a
+                    >
+                    <a
+                      :href="item.source"
+                      class="btn btn-sm btn-outline-secondary"
+                      >原始碼</a
+                    >
+                  </div>
+                  <small class="text-muted">最後更新 {{item.lastUpdate}}</small>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
-    </div>
-  </main>
+    </main>
 
-  <footer class="bg-dark py-5 text-white">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center">
-        <div>© 2021 All rights reserved. And Design by <a href="https://github.com/WangShuan">WangShuan</a></div>
-        <a class="btn btn-light" href="#"><i class=" fas fa-angle-up"></i></a>
+    <footer class="bg-dark py-5 text-white">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            © 2021 All rights reserved. And Design by
+            <a href="https://github.com/WangShuan">WangShuan</a>
+          </div>
+          <a class="btn btn-light" href="#"><i class="fas fa-angle-up"></i></a>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script>
-    var app = new Vue({
-      el: "#app",
-      data: {
-        data: [
-          {
-            name: "vue - 拼圖迷電商網站",
-            view: 'https://wangshuan.github.io/dist/#/',
-            source: 'https://github.com/WangShuan/vue-portfolio-v3',
-            img: 'https://i.ibb.co/jMFm3Ff/2021-04-01-4-56-36.png',
-            lastUpdate: '2020.12.21'
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          data: [
+            {
+              name: 'vue - 拼圖迷電商網站',
+              view: 'https://wangshuan.github.io/dist/#/',
+              source: 'https://github.com/WangShuan/vue-portfolio-v3',
+              img: 'https://i.ibb.co/jMFm3Ff/2021-04-01-4-56-36.png',
+              lastUpdate: '2020.12.21',
+            },
+            {
+              name: 'vue + sass - 甜點電商設計稿',
+              view: 'https://wangshuan.github.io/vue+scss-sweetaste/#/',
+              source: 'https://github.com/WangShuan/vue-sweetaste',
+              img: 'https://i.ibb.co/4Nq5Qnz/2021-04-01-5-37-40.png',
+              lastUpdate: '2021.03.24',
+            },
+            {
+              name: 'jQuery - The F2E 90秒小遊戲',
+              view: 'https://wangshuan.github.io/jquery-90s-game',
+              source: 'https://github.com/WangShuan/F2E-90sGame',
+              img: 'https://i.ibb.co/k1zPfSz/2021-04-01-5-43-45.png',
+              lastUpdate: '2021.04.01',
+            },
+            {
+              name: 'vue - The F2E 旅館訂房服務',
+              view: 'https://wangshuan.github.io/vue-booking/#/',
+              source: 'https://github.com/WangShuan/F2E-booking',
+              img: 'https://i.ibb.co/Gv5ZRqF/2021-04-01-5-38-59.png',
+              lastUpdate: '2021.03.31',
+            },
+            {
+              name: 'vue - 口罩地圖',
+              view: 'https://wangshuan.github.io/vue-mask-map/#/',
+              source: 'https://github.com/WangShuan/vue-maskMap',
+              img: 'https://i.ibb.co/njc9GtZ/2021-04-01-5-31-05.png',
+              lastUpdate: '2020.11.21',
+            },
+            {
+              name: 'vue - 線上支付',
+              view: 'https://wangshuan.github.io/vue-payment/#/',
+              source: 'https://github.com/WangShuan/F2E-payment',
+              img: 'https://i.ibb.co/g6T84Yv/image.png',
+              lastUpdate: '2021.04.27',
+            },
+          ],
+          isReverse: false,
+        },
+        computed: {
+          sort: function () {
+            var vm = this;
+            var sortData = vm.data.sort(function (a, b) {
+              var a = new Date(a['lastUpdate']).getTime();
+              var b = new Date(b['lastUpdate']).getTime();
+              if (vm.isReverse) {
+                return a - b;
+              } else {
+                return b - a;
+              }
+            });
+            return sortData;
           },
-          {
-            name: 'vue + sass - 甜點電商設計稿',
-            view: 'https://wangshuan.github.io/vue+scss-sweetaste/#/',
-            source: 'https://github.com/WangShuan/vue-sweetaste',
-            img: 'https://i.ibb.co/4Nq5Qnz/2021-04-01-5-37-40.png',
-            lastUpdate: '2021.03.24'
-          },
-          {
-            name: 'jQuery - The F2E 90秒小遊戲',
-            view: 'https://wangshuan.github.io/jquery-90s-game',
-            source: 'https://github.com/WangShuan/F2E-90sGame',
-            img: 'https://i.ibb.co/k1zPfSz/2021-04-01-5-43-45.png',
-            lastUpdate: '2021.04.01'
-          }, {
-            name: 'vue - The F2E 旅館訂房服務',
-            view: 'https://wangshuan.github.io/vue-booking/#/',
-            source: 'https://github.com/WangShuan/F2E-booking',
-            img: 'https://i.ibb.co/Gv5ZRqF/2021-04-01-5-38-59.png',
-            lastUpdate: '2021.03.31'
-          }, {
-            name: 'vue - 口罩地圖',
-            view: 'https://wangshuan.github.io/vue-mask-map/#/',
-            source: 'https://github.com/WangShuan/vue-maskMap',
-            img: 'https://i.ibb.co/njc9GtZ/2021-04-01-5-31-05.png',
-            lastUpdate: '2020.11.21'
-          }
-        ],
-        isReverse: false,
-      },
-      computed: {
-        sort: function () {
-          var vm = this;
-          var sortData = vm.data.sort(function (a, b) {
-            var a = new Date(a['lastUpdate']).getTime()
-            var b = new Date(b['lastUpdate']).getTime()
-            if (vm.isReverse) {
-              return a - b
-            } else {
-              return b - a
-            }
-          })
-          return sortData
-        }
-      }
-    });
-
-  </script>
-</body>
-
+        },
+      });
+    </script>
+  </body>
 </html>
