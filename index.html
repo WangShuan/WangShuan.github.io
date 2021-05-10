@@ -134,50 +134,50 @@
 
     <script>
       var app = new Vue({
-        el: '#app',
+        el: "#app",
         data: {
           data: [
             {
-              name: 'vue - 拼圖迷電商網站',
-              view: 'https://wangshuan.github.io/dist/#/',
-              source: 'https://github.com/WangShuan/vue-portfolio-v3',
-              img: 'https://i.ibb.co/jMFm3Ff/2021-04-01-4-56-36.png',
-              lastUpdate: '2020.12.21',
+              name: "vue - 拼圖迷電商網站",
+              view: "https://wangshuan.github.io/dist/#/",
+              source: "https://github.com/WangShuan/vue-portfolio-v3",
+              img: "https://i.ibb.co/jMFm3Ff/2021-04-01-4-56-36.png",
+              lastUpdate: "2020.12.21",
             },
             {
-              name: 'vue + sass - 甜點電商設計稿',
-              view: 'https://wangshuan.github.io/vue+scss-sweetaste/#/',
-              source: 'https://github.com/WangShuan/vue-sweetaste',
-              img: 'https://i.ibb.co/4Nq5Qnz/2021-04-01-5-37-40.png',
-              lastUpdate: '2021.03.24',
+              name: "vue - 甜點電商設計稿",
+              view: "https://wangshuan.github.io/vue+scss-sweetaste/#/",
+              source: "https://github.com/WangShuan/vue-sweetaste",
+              img: "https://i.ibb.co/4Nq5Qnz/2021-04-01-5-37-40.png",
+              lastUpdate: "2021.03.24",
             },
             {
-              name: 'jQuery - The F2E 90秒小遊戲',
-              view: 'https://wangshuan.github.io/jquery-90s-game',
-              source: 'https://github.com/WangShuan/F2E-90sGame',
-              img: 'https://i.ibb.co/k1zPfSz/2021-04-01-5-43-45.png',
-              lastUpdate: '2021.04.01',
+              name: "jQuery - The F2E 90秒小遊戲",
+              view: "https://wangshuan.github.io/jquery-90s-game",
+              source: "https://github.com/WangShuan/F2E-90sGame",
+              img: "https://i.ibb.co/k1zPfSz/2021-04-01-5-43-45.png",
+              lastUpdate: "2021.04.01",
             },
             {
-              name: 'vue - The F2E 旅館訂房服務',
-              view: 'https://wangshuan.github.io/vue-booking/#/',
-              source: 'https://github.com/WangShuan/F2E-booking',
-              img: 'https://i.ibb.co/Gv5ZRqF/2021-04-01-5-38-59.png',
-              lastUpdate: '2021.03.31',
+              name: "vue - The F2E 旅館訂房服務",
+              view: "https://wangshuan.github.io/vue-booking/#/",
+              source: "https://github.com/WangShuan/F2E-booking",
+              img: "https://i.ibb.co/Gv5ZRqF/2021-04-01-5-38-59.png",
+              lastUpdate: "2021.03.31",
             },
             {
-              name: 'vue - 口罩地圖',
-              view: 'https://wangshuan.github.io/vue-mask-map/#/',
-              source: 'https://github.com/WangShuan/vue-maskMap',
-              img: 'https://i.ibb.co/njc9GtZ/2021-04-01-5-31-05.png',
-              lastUpdate: '2020.11.21',
+              name: "vue - The F2E 口罩地圖",
+              view: "https://wangshuan.github.io/vue-mask-map/#/",
+              source: "https://github.com/WangShuan/vue-maskMap",
+              img: "https://i.ibb.co/njc9GtZ/2021-04-01-5-31-05.png",
+              lastUpdate: "2020.11.21",
             },
             {
-              name: 'vue - 線上支付',
-              view: 'https://wangshuan.github.io/vue-payment/#/',
-              source: 'https://github.com/WangShuan/F2E-payment',
-              img: 'https://i.ibb.co/g6T84Yv/image.png',
-              lastUpdate: '2021.04.27',
+              name: "vue - The F2E 線上支付",
+              view: "https://wangshuan.github.io/vue-payment/#/",
+              source: "https://github.com/WangShuan/F2E-payment",
+              img: "https://i.ibb.co/g6T84Yv/image.png",
+              lastUpdate: "2021.04.27",
             },
           ],
           isReverse: false,
@@ -186,8 +186,8 @@
           sort: function () {
             var vm = this;
             var sortData = vm.data.sort(function (a, b) {
-              var a = new Date(a['lastUpdate']).getTime();
-              var b = new Date(b['lastUpdate']).getTime();
+              var a = new Date(a["lastUpdate"]).getTime();
+              var b = new Date(b["lastUpdate"]).getTime();
               if (vm.isReverse) {
                 return a - b;
               } else {
