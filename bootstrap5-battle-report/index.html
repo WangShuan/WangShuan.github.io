@@ -1092,13 +1092,11 @@
               return it.name === item.name;
             });
             this.follow.splice(i, 1);
-            const data = JSON.parse(localStorage.getItem("data")) || [];
             localStorage.setItem("data", JSON.stringify(this.follow));
             this.dataKey += 1;
           },
           addLS(item) {
             item.isFollow = true;
-            const data = JSON.parse(localStorage.getItem("data")) || [];
             this.follow.push(item);
             localStorage.setItem("data", JSON.stringify(this.follow));
             this.dataKey += 1;
