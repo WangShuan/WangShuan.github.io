@@ -63,15 +63,15 @@
             <div>
               <button
                 class="btn btn-primary btn-sm ms-md-2"
-                @click="showFollow=!showFollow"
+                @click="showFollow=true"
                 v-if="!showFollow"
               >
                 查看追蹤({{follow.length}})
               </button>
               <button
                 class="btn btn-secondary btn-sm ms-2"
-                @click="showFollow=!showFollow"
-                v-else="!showFollow"
+                @click="showFollow=false"
+                v-if="showFollow||search"
               >
                 顯示全部
               </button>
@@ -886,7 +886,7 @@
             }
           },
           showFollow() {
-            if (this.showFollow == true) {
+            if (this.showFollow) {
               this.search = "";
             }
           },
