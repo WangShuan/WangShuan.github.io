@@ -216,7 +216,7 @@
             </thead>
             <tbody class="table-content">
               <tr
-                v-for="(item,i) in searchRet.slice(pageStart, pageStart + countOfPage)"
+                v-for="(item,i) in sort.slice(pageStart, pageStart + countOfPage)"
               >
                 <td>{{item.ranking}}</td>
                 <td>
@@ -295,7 +295,7 @@
             </thead>
             <tbody class="table-content">
               <tr
-                v-for="(item,i) in searchRet.slice(pageStart, pageStart + countOfPage)"
+                v-for="(item,i) in sort.slice(pageStart, pageStart + countOfPage)"
               >
                 <td>{{item.ranking}}</td>
                 <td>
@@ -423,7 +423,7 @@
             </thead>
             <tbody class="table-content">
               <tr
-                v-for="(item,i) in follow.slice(pageStart, pageStart + countOfPage)"
+                v-for="(item,i) in sort.slice(pageStart, pageStart + countOfPage)"
               >
                 <td>{{item.ranking}}</td>
                 <td>
@@ -501,7 +501,7 @@
             </thead>
             <tbody class="table-content">
               <tr
-                v-for="(item,i) in follow.slice(pageStart, pageStart + countOfPage)"
+                v-for="(item,i) in sort.slice(pageStart, pageStart + countOfPage)"
               >
                 <td>{{item.ranking}}</td>
                 <td>
@@ -984,15 +984,37 @@
                   break;
               }
             });
-            var sortData = vm.userData.sort(function (a, b) {
-              var a = a[vm.sortType];
-              var b = b[vm.sortType];
-              if (vm.isReverse) {
-                return a - b;
-              } else {
-                return b - a;
-              }
-            });
+            if (vm.showFollow) {
+              var sortData = vm.follow.sort(function (a, b) {
+                var a = a[vm.sortType];
+                var b = b[vm.sortType];
+                if (vm.isReverse) {
+                  return a - b;
+                } else {
+                  return b - a;
+                }
+              });
+            } else if (vm.search) {
+              var sortData = vm.searchRet.sort(function (a, b) {
+                var a = a[vm.sortType];
+                var b = b[vm.sortType];
+                if (vm.isReverse) {
+                  return a - b;
+                } else {
+                  return b - a;
+                }
+              });
+            } else if (!vm.search && !vm.showFollow) {
+              var sortData = vm.userData.sort(function (a, b) {
+                var a = a[vm.sortType];
+                var b = b[vm.sortType];
+                if (vm.isReverse) {
+                  return a - b;
+                } else {
+                  return b - a;
+                }
+              });
+            }
             return sortData;
           },
           num() {
