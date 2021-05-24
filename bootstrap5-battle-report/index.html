@@ -58,9 +58,18 @@
         </h1>
 
         <div class="bg-light p-3">
-          <div class="d-flex justify-content-between g-0">
-            <div>依姓名搜尋：<input type="text" v-model="search" /></div>
-            <div>
+          <div
+            class="
+              row
+              justify-content-center justify-content-sm-between
+              align-items-center
+              g-2
+            "
+          >
+            <div class="col-auto">
+              依姓名搜尋：<input type="text" v-model="search" />
+            </div>
+            <div class="col-auto">
               <button
                 class="btn btn-primary btn-sm ms-md-2"
                 @click="showFollow=true"
@@ -70,8 +79,8 @@
               </button>
               <button
                 class="btn btn-secondary btn-sm ms-2"
-                @click="showFollow=false"
-                v-else
+                @click="showFollow=false,search=''"
+                v-if="showFollow||search"
               >
                 顯示全部
               </button>
