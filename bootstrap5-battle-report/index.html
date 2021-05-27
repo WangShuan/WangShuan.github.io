@@ -96,7 +96,7 @@
             <tr>
               <td>{{num[1]}}</td>
               <td>{{num[2]}}</td>
-              <td>{{num[3]||0}}</td>
+              <td>{{num[3]}}</td>
             </tr>
           </tbody>
         </table>
@@ -715,6 +715,7 @@
           let total = 0;
           let i = 0;
           let j = 0;
+          let k = 0
           this.userData.forEach((item) => {
             total++;
             if (item.w1url) {
@@ -723,8 +724,11 @@
             if (item.w2url) {
               j++;
             }
+            if (item.w3url) {
+              k++
+            }
           });
-          arr.push(total, i, j);
+          arr.push(total, i, j, k);
           return arr;
         },
         currentData() {
