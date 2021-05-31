@@ -327,6 +327,7 @@
               role="tab"
               aria-controls="tab-detail"
               aria-selected="true"
+              onclick="goToThere()"
               >專案介紹</a
             >
           </li>
@@ -338,6 +339,7 @@
               role="tab"
               aria-controls="tab-news"
               aria-selected="false"
+              onclick="goToThere()"
               >常見問答</a
             >
           </li>
@@ -349,6 +351,7 @@
               role="tab"
               aria-controls="tab-qa"
               aria-selected="false"
+              onclick="goToThere()"
               >目前進度</a
             >
           </li>
@@ -360,6 +363,7 @@
               role="tab"
               aria-controls="tab-comment"
               aria-selected="false"
+              onclick="goToThere()"
               >留言</a
             >
           </li>
@@ -373,7 +377,7 @@
         <div class="row g-md-5">
           <!-- 左邊 tab 區塊 -->
           <div class="col-12 col-md-7">
-            <div class="tab-content mb-5">
+            <div class="tab-content mb-5" id="there">
               <!-- tab - 專案介紹 -->
               <div
                 class="tab-pane fade active show"
@@ -1493,6 +1497,25 @@
       var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
       });
+      function heightToTop(ele) {
+        //ele为指定跳转到该位置的DOM节点
+        let bridge = ele;
+        let root = document.body;
+        let height = 0;
+        do {
+          height += bridge.offsetTop;
+          bridge = bridge.offsetParent;
+        } while (bridge !== root);
+
+        return height;
+      }
+      //按钮点击时
+      function goToThere() {
+        window.scrollTo({
+          top: heightToTop(document.getElementById("there")) - 70,
+          behavior: "smooth",
+        });
+      }
     </script>
   </body>
 </html>
