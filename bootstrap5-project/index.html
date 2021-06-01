@@ -327,7 +327,7 @@
               role="tab"
               aria-controls="tab-detail"
               aria-selected="true"
-              onclick="goToThere()"
+              onclick="goToTab()"
               >專案介紹</a
             >
           </li>
@@ -339,7 +339,7 @@
               role="tab"
               aria-controls="tab-news"
               aria-selected="false"
-              onclick="goToThere()"
+              onclick="goToTab()"
               >常見問答</a
             >
           </li>
@@ -351,7 +351,7 @@
               role="tab"
               aria-controls="tab-qa"
               aria-selected="false"
-              onclick="goToThere()"
+              onclick="goToTab()"
               >目前進度</a
             >
           </li>
@@ -363,7 +363,7 @@
               role="tab"
               aria-controls="tab-comment"
               aria-selected="false"
-              onclick="goToThere()"
+              onclick="goToTab()"
               >留言</a
             >
           </li>
@@ -377,7 +377,7 @@
         <div class="row g-md-5">
           <!-- 左邊 tab 區塊 -->
           <div class="col-12 col-md-7">
-            <div class="tab-content mb-5" id="there">
+            <div class="tab-content mb-5">
               <!-- tab - 專案介紹 -->
               <div
                 class="tab-pane fade active show"
@@ -1154,7 +1154,7 @@
                 贊助專案
               </div>
             </div>
-            <form>
+            <form id="form">
               <div class="mb-3">
                 <label for="project" class="form-label">贊助方案</label>
                 <select
@@ -1419,6 +1419,7 @@
                   <a
                     href="#"
                     class="btn btn-warning rounded-pill w-100 fw-bold text-dark"
+                    id="oraginBtn"
                     >贊助此專案</a
                   >
                 </div>
@@ -1428,7 +1429,24 @@
         </div>
       </div>
     </div>
-
+    <div class="position-sticky bottom-0" style="z-index: 999">
+      <button
+        class="
+          btn btn-warning btn-lg
+          px-5
+          fw-bold
+          text-dark
+          rounded-0
+          mt-2
+          w-100
+          d-md-none
+        "
+        onclick="goForm()"
+        id="bottomBtn"
+      >
+        贊助專案
+      </button>
+    </div>
     <footer
       class="container-fuild text-center p-4 text-white"
       style="background: #494846"
@@ -1497,8 +1515,9 @@
       var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
       });
+      var form = document.getElementById("form");
+
       function heightToTop(ele) {
-        //ele为指定跳转到该位置的DOM节点
         let bridge = ele;
         let root = document.body;
         let height = 0;
@@ -1509,13 +1528,41 @@
 
         return height;
       }
-      //按钮点击时
-      function goToThere() {
+      function goToTab() {
         window.scrollTo({
-          top: heightToTop(document.getElementById("there")) - 70,
+          top:
+            heightToTop(document.getElementsByClassName("tab-content")[0]) - 70,
           behavior: "smooth",
         });
       }
+      function goForm() {
+        window.scrollTo({
+          top: heightToTop(form) - 170,
+          behavior: "smooth",
+        });
+      }
+
+      var bottomBtn = document.getElementById("bottomBtn");
+      let scrollHeight =
+        document.documentElement.scrollHeight || document.body.scrollHeight;
+      let windowHeight =
+        document.documentElement.clientHeight || document.body.clientHeight;
+      bottomBtn.style.display = "none";
+      window.onscroll = function () {
+        const t = document.documentElement.scrollTop || document.body.scrollTop;
+        if (bottomBtn !== null) {
+          if (
+            t >
+              heightToTop(document.getElementsByClassName("tab-content")[0]) -
+                100 &&
+            t < scrollHeight - windowHeight - 200
+          ) {
+            bottomBtn.style.display = "block";
+          } else {
+            bottomBtn.style.display = "none";
+          }
+        }
+      };
     </script>
   </body>
 </html>
