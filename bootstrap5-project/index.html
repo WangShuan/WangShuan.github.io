@@ -4,10 +4,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600;700&family=Noto+Sans+TC:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;600;700&family=Noto+Sans+TC:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -33,7 +32,7 @@
               />
             </a>
             <button
-              class="navbar-toggler border-0"
+              class="navbar-toggler border-0 p-0"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
@@ -64,13 +63,19 @@
               </ul>
               <div class="justify-content-end d-flex">
                 <button
-                  class="btn btn-warning text-dark me-3 rounded-pill"
+                  class="btn btn-warning btn-warning-hover me-3 rounded-pill"
                   data-bs-toggle="modal"
                   data-bs-target="#login"
                 >
                   登入
                 </button>
-                <button class="btn btn-outline-secondary rounded-pill border-2">
+                <button
+                  class="
+                    btn btn-outline-secondary btn-outline-secondary-hover
+                    rounded-pill
+                    border-2
+                  "
+                >
                   註冊
                 </button>
               </div>
@@ -85,27 +90,23 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-12">
-            <span class="badge bg-secondary px-3 py-0" style="line-height: 22px"
-              >魔法科技</span
-            >
-            <div class="fs-2 fw-bold mt-1 pb-4">
+            <span class="badge bg-secondary px-3">魔法科技</span>
+            <h1 class="fs-2 fw-bold mt-1 mb-0 pb-4 letter-spacing-22">
               拍出會動的照片｜LivePhotos 魔法拍立得
-            </div>
+            </h1>
           </div>
-          <div class="col-12 col-md-auto col-lg-7">
+          <div class="col-md-auto col-lg-7">
             <img
               src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/produt_image.jpg"
               alt=""
               class="img-fluid rounded-32"
             />
           </div>
-          <div class="col-12 col-md col-lg-5">
-            <span
-              class="text-dark ff-bt2 fz-14"
-              style="line-height: 20px; height: 25px"
+          <div class="col-md col-lg-5">
+            <span class="text-dark ff-bt2 fz-14 lh-lg d-block mt-3 mt-md-0"
               >目標 $600,000</span
             >
-            <div class="ff-bt2 fs-2 lh-xl-lg">$280,047</div>
+            <div class="ff-bt2 fs-2 lh-xl-lg fw-bold">$280,047</div>
             <div class="progress rounded-pill">
               <div
                 class="progress-bar bg-warning text-secondary"
@@ -118,9 +119,9 @@
                 41%
               </div>
             </div>
-            <div class="row mt-30">
+            <div class="row mt-3 mt-md-4">
               <div class="col-6">
-                <div class="position-relative mb-1">
+                <div class="position-relative">
                   <div
                     class="
                       fz-14
@@ -130,11 +131,12 @@
                       translate-middle-y
                       fw-normal
                       pb-xl-3
+                      text-dark
                     "
                   >
                     贊助人數
                   </div>
-                  <span class="ff-bt2 fs-2 lh-lg">1374</span>
+                  <span class="ff-bt2 fs-2 lh-lg fw-bold">1374</span>
                   <span class="fs-4 fw-bolder lh-lg">人</span>
                 </div>
               </div>
@@ -149,23 +151,24 @@
                       translate-middle-y
                       fw-normal
                       pb-xl-3
+                      text-dark
                     "
                   >
                     募資倒數
                   </div>
-                  <span class="ff-bt2 fs-2 lh-xl-lg">27</span>
-                  <span class="fs-4 fw-bolder lh-xl-lg">天</span>
+                  <span class="ff-bt2 fs-2 lh-xl-lg fw-bold">27</span>
+                  <span class="fs-4 fw-bolder lh-lg">天</span>
                 </div>
               </div>
-              <div class="col-12 col-md-6 mb-3">
-                <div
+              <div class="col-md-6 mb-3">
+                <ul
                   class="
-                    row
-                    g-md-0 g-2
-                    justify-content-center justify-content-md-start
+                    d-flex
+                    justify-content-between justify-content-md-start
+                    list-unstyled
                   "
                 >
-                  <div class="col-3 custom-icons">
+                  <li class="custom-icons">
                     <a
                       href="#"
                       class="link-dark text-decoration-none"
@@ -180,8 +183,8 @@
                       />
                       <small class="d-md-none align-bottom">認證標章</small></a
                     >
-                  </div>
-                  <div class="col-3 custom-icons">
+                  </li>
+                  <li class="custom-icons">
                     <a
                       href="#"
                       class="link-dark text-decoration-none"
@@ -196,8 +199,8 @@
                       />
                       <small class="d-md-none align-bottom">品質保證</small>
                     </a>
-                  </div>
-                  <div class="col-3 custom-icons">
+                  </li>
+                  <li class="custom-icons">
                     <a
                       href="#"
                       class="link-dark text-decoration-none"
@@ -212,8 +215,8 @@
                       />
                       <small class="d-md-none align-bottom">原生創意</small>
                     </a>
-                  </div>
-                  <div class="col-3 custom-icons">
+                  </li>
+                  <li class="custom-icons me-0">
                     <a
                       href="#"
                       class="link-dark text-decoration-none"
@@ -228,8 +231,8 @@
                       />
                       <small class="d-md-none align-bottom">人氣王</small></a
                     >
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </div>
             </div>
 
@@ -255,9 +258,8 @@
                 <div class="col-12">
                   <button
                     class="
-                      btn-warning btn
+                      btn-warning btn btn-warning-hover
                       w-100
-                      text-dark
                       rounded-pill
                       btn-lg
                       mb-2
@@ -269,7 +271,7 @@
                     <div class="col-6 col-md-7">
                       <button
                         class="
-                          btn-outline-secondary
+                          btn-outline-secondary btn-outline-secondary-hover
                           border-2
                           btn
                           w-100
@@ -284,7 +286,7 @@
                     <div class="col">
                       <button
                         class="
-                          btn-outline-secondary
+                          btn-outline-secondary btn-outline-secondary-hover
                           border-2
                           btn btn-lg
                           w-100
@@ -376,7 +378,7 @@
       <div class="my-4">
         <div class="row g-md-5">
           <!-- 左邊 tab 區塊 -->
-          <div class="col-12 col-md-7">
+          <div class="col-md-8">
             <div class="tab-content mb-5">
               <!-- tab - 專案介紹 -->
               <div
@@ -387,23 +389,40 @@
                 <img
                   src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/p1.jpg"
                   alt=""
-                  class="img-fluid"
+                  class="img-fluid w-100"
                 />
-                <h4 class="mt-3 mb-1 ps-3 border-start border-4 border-warning">
+                <h3
+                  class="
+                    mt-3
+                    mb-1
+                    ps-3
+                    fs-4
+                    border-start border-4 border-warning
+                    fw-bolder
+                  "
+                >
                   施了魔法的照片
-                </h4>
-                <div class="lh-lg text-justify">
+                </h3>
+                <div class="lh-lg text-justify mt-2">
                   受就相法大夠局來畫師我只這然以放灣得的後人心年我物我年，或人有動與次出女親構算帶年行著所間女，外成認心香吸工並知日成展源大超時動為生葉衣致長山對精做英密差家他微熱建取示濟定心一，品定把別銀動，深青輪一物加，生明果。西業白老如天有表非民大條全那遊，李文遊、像香過元學須本致信校態麼資司媽人價在它，地他不我計孩廠然不大指勢生的華常簡岸然，人著母病石金萬得一果。
                 </div>
                 <img
                   src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/p2.jpg"
                   alt=""
-                  class="img-fluid mt-4"
+                  class="img-fluid mt-4 w-100"
                 />
-                <h4 class="mt-3 ps-3 border-start border-4 border-warning">
+                <h3
+                  class="
+                    mt-3
+                    ps-3
+                    border-start border-4 border-warning
+                    fw-bolder
+                    fs-4
+                  "
+                >
                   留下當下的美好
-                </h4>
-                <p class="lh-lg text-justify">
+                </h3>
+                <p class="lh-lg text-justify mt-2">
                   受就相法大夠局來畫師我只這然以放灣得的後人心年我物我年，或人有動與次出女親構算帶年行著所間女，外成認心香吸工並知日成展源大超時動為生葉衣致長山對精做英密差家他微熱建取示濟定心一，品定把別銀動，深青輪一物加，生明果。西業白老如天有表非民大條全那遊，李文遊、像香過元學須本致信校態麼資司媽人價在它，地他不我計孩廠然不大指勢生的華常簡岸然，人著母病石金萬得一果。
                 </p>
               </div>
@@ -430,11 +449,10 @@
                             rounded
                             fz-14
                             me-3
-                          "
-                          style="
-                            width: 28px;
-                            line-height: 24px;
-                            padding-top: 4px;
+                            pt-1
+                            lh-lg
+                            letter-spacing-7
+                            px-2
                           "
                         >
                           Q1
@@ -474,11 +492,10 @@
                             rounded
                             fz-14
                             me-3
-                          "
-                          style="
-                            width: 28px;
-                            line-height: 24px;
-                            padding-top: 4px;
+                            pt-1
+                            lh-lg
+                            letter-spacing-7
+                            px-2
                           "
                         >
                           Q2
@@ -519,11 +536,10 @@
                             rounded
                             fz-14
                             me-3
-                          "
-                          style="
-                            width: 28px;
-                            line-height: 24px;
-                            padding-top: 4px;
+                            pt-1
+                            lh-lg
+                            letter-spacing-7
+                            px-2
                           "
                         >
                           Q3
@@ -565,11 +581,10 @@
                             rounded
                             fz-14
                             me-3
-                          "
-                          style="
-                            width: 28px;
-                            line-height: 24px;
-                            padding-top: 4px;
+                            pt-1
+                            lh-lg
+                            letter-spacing-7
+                            px-2
                           "
                         >
                           Q4
@@ -610,11 +625,10 @@
                             rounded
                             fz-14
                             me-3
-                          "
-                          style="
-                            width: 28px;
-                            line-height: 24px;
-                            padding-top: 4px;
+                            pt-1
+                            lh-lg
+                            letter-spacing-7
+                            px-2
                           "
                         >
                           Q5
@@ -655,11 +669,10 @@
                             rounded
                             fz-14
                             me-3
-                          "
-                          style="
-                            width: 28px;
-                            line-height: 24px;
-                            padding-top: 4px;
+                            pt-1
+                            lh-lg
+                            letter-spacing-7
+                            px-2
                           "
                         >
                           Q6
@@ -689,7 +702,7 @@
                     <div class="col-auto">
                       <img
                         src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/news01.jpg"
-                        alt="..."
+                        alt="消息示意圖"
                         class="news-img d-md-none d-xl-block"
                       />
                     </div>
@@ -741,7 +754,7 @@
                     <div class="col-auto">
                       <img
                         src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/news02.jpg"
-                        alt="..."
+                        alt="消息示意圖"
                         class="news-img d-md-none d-xl-block"
                       />
                     </div>
@@ -793,7 +806,7 @@
                     <div class="col-auto">
                       <img
                         src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/news03.jpg"
-                        alt="..."
+                        alt="消息示意圖"
                         class="news-img d-md-none d-xl-block"
                       />
                     </div>
@@ -852,8 +865,9 @@
                     text-dark
                     mb-3
                     d-none d-md-block
+                    letter-spacing-7
+                    bg-lightwhite
                   "
-                  style="background-color: #fefefe"
                 >
                   只有本專案的贊助者才可以留言哦，如果有任何專案相關的問題，歡迎<a
                     href="#"
@@ -870,17 +884,41 @@
                           alt=""
                         />
                         <div class="d-flex flex-column ms-3">
-                          <a href="#" class="comment-title">廖小杰</a>
-                          <small class="fz-14 text-secondary comment-date"
+                          <a href="#" class="comment-title letter-spacing-20"
+                            >廖小杰</a
+                          >
+                          <small
+                            class="
+                              fz-14
+                              text-secondary
+                              comment-date
+                              letter-spacing-20
+                            "
                             >2020年5月22日 11:32</small
                           >
                         </div>
                       </div>
-                      <div class="comment-body my-3">
+                      <p class="comment-body my-3 letter-spacing-7">
                         晚上起床上廁所看到照片裡的人一直動其實有點恐怖，希望可以有暫停或是定時的功能！
-                      </div>
-                      <div class="comment-back p-3 bg-light rounded-2">
-                        <span class="text-danger w-100 fz-14 d-block mb-2"
+                      </p>
+                      <div
+                        class="
+                          comment-body
+                          p-3
+                          bg-light
+                          rounded-2
+                          letter-spacing-7
+                        "
+                      >
+                        <span
+                          class="
+                            text-danger
+                            w-100
+                            fz-14
+                            d-block
+                            mb-2
+                            letter-spacing-6
+                          "
                           >提案者回覆</span
                         >
                         你要嘛起床的時候開燈，要嘛給我們更多錢開發阿
@@ -895,15 +933,23 @@
                           alt=""
                         />
                         <div class="d-flex flex-column ms-3">
-                          <a href="#" class="comment-title">卡阿伯</a>
-                          <small class="fz-14 text-secondary comment-date"
+                          <a href="#" class="comment-title letter-spacing-20"
+                            >卡阿伯</a
+                          >
+                          <small
+                            class="
+                              fz-14
+                              text-secondary
+                              comment-date
+                              letter-spacing-20
+                            "
                             >2020年5月22日 11:32</small
                           >
                         </div>
                       </div>
-                      <div class="comment-body my-3">
+                      <p class="comment-body my-3 letter-spacing-7">
                         希望有更多花色可以選擇！我女兒最近喜歡綠色
-                      </div>
+                      </p>
                     </div>
                   </div>
                   <div class="col-12">
@@ -914,15 +960,23 @@
                           alt=""
                         />
                         <div class="d-flex flex-column ms-3">
-                          <a href="#" class="comment-title">賈師</a>
-                          <small class="fz-14 text-secondary comment-date"
+                          <a href="#" class="comment-title letter-spacing-20"
+                            >賈師</a
+                          >
+                          <small
+                            class="
+                              fz-14
+                              text-secondary
+                              comment-date
+                              letter-spacing-20
+                            "
                             >2020年5月22日 11:32</small
                           >
                         </div>
                       </div>
-                      <div class="comment-body my-3">
+                      <p class="comment-body my-3 letter-spacing-7">
                         可以做個相簿功能嗎？拍出好看的影片再讓我們選擇要印出哪一張這樣
-                      </div>
+                      </p>
                     </div>
                   </div>
                   <div class="col-12">
@@ -933,15 +987,23 @@
                           alt=""
                         />
                         <div class="d-flex flex-column ms-3">
-                          <a href="#" class="comment-title">俊俊</a>
-                          <small class="fz-14 text-secondary comment-date"
+                          <a href="#" class="comment-title letter-spacing-20"
+                            >俊俊</a
+                          >
+                          <small
+                            class="
+                              fz-14
+                              text-secondary
+                              comment-date
+                              letter-spacing-20
+                            "
                             >2020年5月22日 11:32</small
                           >
                         </div>
                       </div>
-                      <div class="comment-body my-3">
+                      <p class="comment-body my-3">
                         test123 看一下我是不是真的可以留言
-                      </div>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -956,7 +1018,7 @@
                     class="rounded-pill border-2 border-warning border"
                   />
                   <div class="ps-3">
-                    <h5>缺錢事務所</h5>
+                    <h4 class="fs-5">缺錢事務所</h4>
                     <div class="fs-6">已發起 <strong>1</strong> 個專案</div>
                   </div>
                 </div>
@@ -966,20 +1028,31 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex">
                     <div
-                      class="bg-secondary rounded-circle text-center me-2"
-                      style="width: 30px; height: 30px"
+                      class="
+                        bg-secondary
+                        rounded-circle
+                        text-center
+                        me-2
+                        card-icon
+                      "
                     >
                       <i class="fab fa-facebook-f text-white lh-lg"></i>
                     </div>
                     <div
-                      class="bg-secondary rounded-circle text-center"
-                      style="width: 30px; height: 30px"
+                      class="bg-secondary rounded-circle text-center card-icon"
                     >
                       <i class="fab fa-youtube text-white lh-lg"></i>
                     </div>
                   </div>
                   <button
-                    class="btn btn-sm btn-outline-secondary rounded-pill px-3"
+                    class="
+                      btn
+                      btn-sm
+                      btn-outline-secondary
+                      btn-outline-secondary-hover
+                      rounded-pill
+                      px-3
+                    "
                   >
                     <i class="far fa-comment-dots me-2 text-secondary"></i
                     >聯絡我們
@@ -996,15 +1069,16 @@
                   p-2
                   rounded
                   h5
+                  letter-spacing-20
                 "
               >
                 選擇一個方案來支持
               </div>
-              <div class="card rounded-12 mt-3">
+              <div class="card mt-3">
                 <img
                   src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/img.jpg"
                   class="card-img-top"
-                  alt="..."
+                  alt="廣告/團購優惠"
                 />
                 <div class="card-body pt-2">
                   <div
@@ -1020,31 +1094,36 @@
                     <span class="text-dark fz-14">限時優惠</span>
                     <span class="ff-bt2 text-dark fz-14">2 days 20:05:20</span>
                   </div>
-                  <h5 class="mycard-title fw-bold">
+                  <h5 class="letter-spacing-20 fw-bold">
                     買一送一，只有兩百組別錯過
                   </h5>
                   <h4 class="ff-bt2 fw-bolder h4">NT$ 1600</h4>
-                  <span class="badge bg-beige text-secondary px-3"
+                  <span class="badge bg-lightgary text-secondary px-3 me-1"
                     >已被贊助88次</span
                   >
                   <span class="badge bg-secondary text-white px-3"
                     >限量<span class="text-warning">200</span>個</span
                   >
-                  <p class="mycard-text mt-2">
+                  <p class="letter-spacing-7 text-justify text-secondary mt-2">
                     受就相法大夠局來畫師我只這然以放灣得的後人心年我物我年，或人有動與次出女親構算帶年行著所間女。
                   </p>
                   <a
                     href="#"
-                    class="btn btn-warning rounded-pill w-100 fw-bold text-dark"
+                    class="
+                      btn btn-warning btn-warning-hover
+                      rounded-pill
+                      w-100
+                      fw-bold
+                    "
                     >贊助此專案</a
                   >
                 </div>
               </div>
-              <div class="card rounded-12 mt-3">
+              <div class="card mt-3">
                 <img
                   src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/img.jpg"
                   class="card-img-top"
-                  alt="..."
+                  alt="廣告/團購優惠"
                 />
                 <div class="card-body pt-2">
                   <div
@@ -1060,31 +1139,36 @@
                     <span class="text-dark fz-14">限時優惠</span>
                     <span class="ff-bt2 text-dark fz-14">2 days 20:05:20</span>
                   </div>
-                  <h5 class="mycard-title fw-bold">
+                  <h5 class="letter-spacing-20 fw-bold">
                     買一送一，只有兩百組別錯過
                   </h5>
                   <h4 class="ff-bt2 fw-bolder h4">NT$ 1600</h4>
-                  <span class="badge bg-beige text-secondary px-3"
+                  <span class="badge bg-lightgary text-secondary px-3 me-1"
                     >已被贊助88次</span
                   >
                   <span class="badge bg-secondary text-white px-3"
                     >限量<span class="text-warning">200</span>個</span
                   >
-                  <p class="mycard-text mt-2">
+                  <p class="letter-spacing-7 text-justify text-secondary mt-2">
                     受就相法大夠局來畫師我只這然以放灣得的後人心年我物我年，或人有動與次出女親構算帶年行著所間女。
                   </p>
                   <a
                     href="#"
-                    class="btn btn-warning rounded-pill w-100 fw-bold text-dark"
+                    class="
+                      btn btn-warning btn-warning-hover
+                      rounded-pill
+                      w-100
+                      fw-bold
+                    "
                     >贊助此專案</a
                   >
                 </div>
               </div>
-              <div class="card rounded-12 mt-3">
+              <div class="card mt-3">
                 <img
                   src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/img.jpg"
                   class="card-img-top"
-                  alt="..."
+                  alt="廣告/團購優惠"
                 />
                 <div class="card-body pt-2">
                   <div
@@ -1100,22 +1184,27 @@
                     <span class="text-dark fz-14">限時優惠</span>
                     <span class="ff-bt2 text-dark fz-14">2 days 20:05:20</span>
                   </div>
-                  <h5 class="mycard-title fw-bold">
+                  <h5 class="letter-spacing-20 fw-bold">
                     買一送一，只有兩百組別錯過
                   </h5>
                   <h4 class="ff-bt2 fw-bolder h4">NT$ 1600</h4>
-                  <span class="badge bg-beige text-secondary px-3"
+                  <span class="badge bg-lightgary text-secondary px-3 me-1"
                     >已被贊助88次</span
                   >
                   <span class="badge bg-secondary text-white px-3"
                     >限量<span class="text-warning">200</span>個</span
                   >
-                  <p class="mycard-text mt-2">
+                  <p class="letter-spacing-7 text-justify text-secondary mt-2">
                     受就相法大夠局來畫師我只這然以放灣得的後人心年我物我年，或人有動與次出女親構算帶年行著所間女。
                   </p>
                   <a
                     href="#"
-                    class="btn btn-warning rounded-pill w-100 fw-bold text-dark"
+                    class="
+                      btn btn-warning btn-warning-hover
+                      rounded-pill
+                      w-100
+                      fw-bold
+                    "
                     >贊助此專案</a
                   >
                 </div>
@@ -1125,7 +1214,7 @@
             <div class="d-flex justify-content-center">
               <img
                 src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/hezuo.svg"
-                alt=""
+                alt="合作圖標"
               />
             </div>
             <div class="position-relative my-4">
@@ -1158,7 +1247,7 @@
               <div class="mb-3">
                 <label for="project" class="form-label">贊助方案</label>
                 <select
-                  class="form-select border-light bg-light text-muted"
+                  class="form-select"
                   id="project"
                   aria-label="select project"
                   required
@@ -1173,45 +1262,25 @@
 
               <div class="mb-3">
                 <label for="name" class="form-label">收件人姓名</label>
-                <input
-                  type="text"
-                  class="form-control border-light bg-light"
-                  id="name"
-                  required
-                />
+                <input type="text" class="form-control" id="name" required />
                 <div class="invalid-feedback">請輸入正確的收件人姓名</div>
               </div>
 
               <div class="mb-3">
                 <label for="address" class="form-label">收件地址</label>
-                <input
-                  type="text"
-                  class="form-control border-light bg-light"
-                  id="address"
-                  required
-                />
+                <input type="text" class="form-control" id="address" required />
                 <div class="invalid-feedback">請輸入正確的收件地址</div>
               </div>
 
               <div class="mb-3">
                 <label for="phone" class="form-label">聯絡電話</label>
-                <input
-                  type="text"
-                  class="form-control border-light bg-light"
-                  id="phone"
-                  required
-                />
+                <input type="text" class="form-control" id="phone" required />
                 <div class="invalid-feedback">請輸入正確的電話號碼</div>
               </div>
 
               <div class="mb-3">
                 <label for="email" class="form-label">聯絡信箱</label>
-                <input
-                  type="text"
-                  class="form-control border-light bg-light"
-                  id="email"
-                  required
-                />
+                <input type="text" class="form-control" id="email" required />
                 <div class="invalid-feedback">請輸入正確的郵件格式</div>
               </div>
 
@@ -1219,7 +1288,7 @@
                 <label for="payment" class="form-label">付款方式</label>
                 <select
                   id="payment"
-                  class="form-select border-light bg-light text-muted"
+                  class="form-select"
                   aria-label="select payment"
                   required
                 >
@@ -1231,10 +1300,9 @@
 
               <button
                 class="
-                  btn btn-warning btn-lg
+                  btn btn-warning btn-lg btn-warning-hover
                   px-5
                   fw-bold
-                  text-dark
                   rounded-pill
                   mt-2
                   w-100
@@ -1249,10 +1317,9 @@
                 <button
                   type="submit"
                   class="
-                    btn btn-warning btn-lg
+                    btn btn-warning btn-lg btn-warning-hover
                     px-5
                     fw-bold
-                    text-dark
                     rounded-pill
                     mt-2
                   "
@@ -1263,7 +1330,7 @@
             </form>
           </div>
           <!-- 右邊 card 區塊 -->
-          <div class="col-md-5 d-none d-md-block">
+          <div class="col-md-4 d-none d-md-block">
             <div class="position-sticky overflow-scroll top-nav h-100vh-nav">
               <div class="border rounded-3 p-3 mb-2">
                 <div class="d-flex justify-content-start align-items-center">
@@ -1272,30 +1339,43 @@
                     class="rounded-pill border-2 border-warning border"
                   />
                   <div class="ps-3">
-                    <h5>缺錢事務所</h5>
-                    <div class="fs-6">已發起 <strong>1</strong> 個專案</div>
+                    <h5 class="letter-spacing-20">缺錢事務所</h5>
+                    <div class="fs-6 letter-spacing-7">
+                      已發起 <strong>1</strong> 個專案
+                    </div>
                   </div>
                 </div>
-                <p class="my-3 fs-6">
+                <p class="my-3 fs-6 letter-spacing-7">
                   需要點錢錢做些酷酷的東西，拜託各位乾爹乾媽囉！
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex">
                     <div
-                      class="bg-secondary rounded-circle text-center me-2"
-                      style="width: 30px; height: 30px"
+                      class="
+                        bg-secondary
+                        rounded-circle
+                        text-center
+                        me-2
+                        card-icon
+                      "
                     >
                       <i class="fab fa-facebook-f text-white lh-lg"></i>
                     </div>
                     <div
-                      class="bg-secondary rounded-circle text-center"
-                      style="width: 30px; height: 30px"
+                      class="bg-secondary rounded-circle text-center card-icon"
                     >
                       <i class="fab fa-youtube text-white lh-lg"></i>
                     </div>
                   </div>
                   <button
-                    class="btn btn-sm btn-outline-secondary rounded-pill px-3"
+                    class="
+                      btn
+                      btn-sm
+                      btn-outline-secondary
+                      btn-outline-secondary-hover
+                      rounded-pill
+                      px-3
+                    "
                   >
                     <i class="far fa-comment-dots me-2 text-secondary"></i
                     >聯絡我們
@@ -1312,15 +1392,16 @@
                   p-2
                   rounded
                   h5
+                  letter-spacing-20
                 "
               >
                 選擇一個方案來支持
               </div>
-              <div class="card rounded-12 mt-3">
+              <div class="card mt-3">
                 <img
                   src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/img.jpg"
                   class="card-img-top"
-                  alt="..."
+                  alt="廣告/團購優惠"
                 />
                 <div class="card-body pt-2">
                   <div
@@ -1336,31 +1417,36 @@
                     <span class="text-dark fz-14">限時優惠</span>
                     <span class="ff-bt2 text-dark fz-14">2 days 20:05:20</span>
                   </div>
-                  <h5 class="mycard-title fw-bold">
+                  <h5 class="letter-spacing-20 fw-bold">
                     買一送一，只有兩百組別錯過
                   </h5>
                   <h4 class="ff-bt2 fw-bolder h4">NT$ 1600</h4>
-                  <span class="badge bg-beige text-secondary px-3"
+                  <span class="badge bg-lightgary text-secondary px-3"
                     >已被贊助88次</span
                   >
                   <span class="badge bg-secondary text-white px-3"
                     >限量<span class="text-warning">200</span>個</span
                   >
-                  <p class="mycard-text mt-2">
+                  <p class="letter-spacing-7 text-justify text-secondary mt-2">
                     受就相法大夠局來畫師我只這然以放灣得的後人心年我物我年，或人有動與次出女親構算帶年行著所間女。
                   </p>
                   <a
                     href="#"
-                    class="btn btn-warning rounded-pill w-100 fw-bold text-dark"
+                    class="
+                      btn btn-warning btn-warning-hover
+                      rounded-pill
+                      w-100
+                      fw-bold
+                    "
                     >贊助此專案</a
                   >
                 </div>
               </div>
-              <div class="card rounded-12 mt-3">
+              <div class="card mt-3">
                 <img
                   src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/img.jpg"
                   class="card-img-top"
-                  alt="..."
+                  alt="廣告/團購優惠"
                 />
                 <div class="card-body pt-2">
                   <div
@@ -1376,31 +1462,36 @@
                     <span class="text-dark fz-14">限時優惠</span>
                     <span class="ff-bt2 text-dark fz-14">2 days 20:05:20</span>
                   </div>
-                  <h5 class="mycard-title fw-bold">
+                  <h5 class="letter-spacing-20 fw-bold">
                     買一送一，只有兩百組別錯過
                   </h5>
                   <h4 class="ff-bt2 fw-bolder h4">NT$ 1600</h4>
-                  <span class="badge bg-beige text-secondary px-3"
+                  <span class="badge bg-lightgary text-secondary px-3"
                     >已被贊助88次</span
                   >
                   <span class="badge bg-secondary text-white px-3"
                     >限量<span class="text-warning">200</span>個</span
                   >
-                  <p class="mycard-text mt-2">
+                  <p class="letter-spacing-7 text-justify text-secondary mt-2">
                     受就相法大夠局來畫師我只這然以放灣得的後人心年我物我年，或人有動與次出女親構算帶年行著所間女。
                   </p>
                   <a
                     href="#"
-                    class="btn btn-warning rounded-pill w-100 fw-bold text-dark"
+                    class="
+                      btn btn-warning btn-warning-hover
+                      rounded-pill
+                      w-100
+                      fw-bold
+                    "
                     >贊助此專案</a
                   >
                 </div>
               </div>
-              <div class="card rounded-12 mt-3">
+              <div class="card mt-3">
                 <img
                   src="https://ecjia.com.tw/demo/bs5_homework_0526/assets/img.jpg"
                   class="card-img-top"
-                  alt="..."
+                  alt="廣告/團購優惠"
                 />
                 <div class="card-body pt-2">
                   <div
@@ -1416,22 +1507,27 @@
                     <span class="text-dark fz-14">限時優惠</span>
                     <span class="ff-bt2 text-dark fz-14">2 days 20:05:20</span>
                   </div>
-                  <h5 class="mycard-title fw-bold">
+                  <h5 class="letter-spacing-20 fw-bold">
                     買一送一，只有兩百組別錯過
                   </h5>
                   <h4 class="ff-bt2 fw-bolder h4">NT$ 1600</h4>
-                  <span class="badge bg-beige text-secondary px-3"
+                  <span class="badge bg-lightgary text-secondary px-3"
                     >已被贊助88次</span
                   >
                   <span class="badge bg-secondary text-white px-3"
                     >限量<span class="text-warning">200</span>個</span
                   >
-                  <p class="mycard-text mt-2">
+                  <p class="letter-spacing-7 text-justify text-secondary mt-2">
                     受就相法大夠局來畫師我只這然以放灣得的後人心年我物我年，或人有動與次出女親構算帶年行著所間女。
                   </p>
                   <a
                     href="#"
-                    class="btn btn-warning rounded-pill w-100 fw-bold text-dark"
+                    class="
+                      btn btn-warning btn-warning-hover
+                      rounded-pill
+                      w-100
+                      fw-bold
+                    "
                     id="oraginBtn"
                     >贊助此專案</a
                   >
@@ -1445,10 +1541,9 @@
     <div class="position-sticky bottom-0" style="z-index: 999">
       <button
         class="
-          btn btn-warning btn-lg
+          btn btn-warning btn-warning-hover btn-lg
           px-5
           fw-bold
-          text-dark
           rounded-0
           mt-2
           w-100
@@ -1460,10 +1555,7 @@
         贊助專案
       </button>
     </div>
-    <footer
-      class="container-fuild text-center p-4 text-white"
-      style="background: #494846"
-    >
+    <footer class="container-fuild text-center p-4 text-white bg-darkgary">
       Copyright © 拼拼 All rights reserved.
     </footer>
 
@@ -1480,14 +1572,37 @@
             ></button>
           </div>
           <div class="modal-body">
-            <label for="mail" class="form-label">帳號</label>
-            <input type="email" id="mail" class="form-control" />
-            <label for="password" class="form-label">密碼</label>
-            <input type="password" id="password" class="form-control" />
-            <p class="text-muted">忘記密碼？</p>
-            <button class="btn btn-warning w-100 rounded-pill mb-3">
-              登入
-            </button>
+            <form class="needs-validation" novalidate>
+              <div>
+                <label for="mail" class="form-label">帳號</label>
+                <input type="email" id="mail" class="form-control" required />
+                <div class="invalid-feedback">請輸入帳號</div>
+              </div>
+              <div>
+                <label for="password" class="form-label mt-3">密碼</label>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  required
+                />
+                <div class="invalid-feedback">請輸入密碼</div>
+              </div>
+              <a href="#" class="text-muted d-block fz-14 mt-2 mb-3"
+                >忘記密碼？</a
+              >
+              <button
+                type="submit"
+                class="
+                  btn btn-warning btn-warning-hover
+                  w-100
+                  rounded-pill
+                  mb-3
+                "
+              >
+                登入
+              </button>
+            </form>
             <div class="position-relative my-4">
               <div class="progress" style="height: 1px">
                 <div
@@ -1507,6 +1622,7 @@
                   bg-white
                   text-center text-muted
                   px-2
+                  fz-14
                 "
               >
                 還沒有帳號？<a href="#" class="link-danger">註冊一個帳號</a>
@@ -1522,14 +1638,16 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      // enable tooltips
       var tooltipTriggerList = [].slice.call(
         document.querySelectorAll('[data-bs-toggle="tooltip"]')
       );
       var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
       });
-      var form = document.getElementById("form");
 
+      // click nav&tab go there & click go to form
+      var form = document.getElementById("form");
       function heightToTop(ele) {
         let bridge = ele;
         let root = document.body;
@@ -1555,11 +1673,8 @@
         });
       }
 
+      // mobile btn toggle
       var bottomBtn = document.getElementById("bottomBtn");
-      let scrollHeight =
-        document.documentElement.scrollHeight || document.body.scrollHeight;
-      let windowHeight =
-        document.documentElement.clientHeight || document.body.clientHeight;
       bottomBtn.style.display = "none";
       window.onscroll = function () {
         const t = document.documentElement.scrollTop || document.body.scrollTop;
@@ -1568,7 +1683,7 @@
             t >
               heightToTop(document.getElementsByClassName("tab-content")[0]) -
                 100 &&
-            t < scrollHeight - windowHeight - 200
+            t < heightToTop(form)
           ) {
             bottomBtn.style.display = "block";
           } else {
@@ -1577,11 +1692,10 @@
         }
       };
 
+      // form validation
       (function () {
         "use strict";
-
         var forms = document.querySelectorAll(".needs-validation");
-
         Array.prototype.slice.call(forms).forEach(function (form) {
           form.addEventListener(
             "submit",
