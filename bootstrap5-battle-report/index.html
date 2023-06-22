@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>BootStrap5 實戰營戰報表</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
+
+  <style>
+    .icon {
+      display: inline-block;
+    }
+
+    .icon.inverse {
+      transform: rotate(180deg);
+    }
+
+    .click {
+      cursor: pointer;
+    }
+
+    .table {
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .bg-err {
+      color: red !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="container" :key="dataKey">
+      <h1 class="text-center p-3">
+        BootStrap5 實戰營戰報
+        <div class="m-2">
+          <em class="text-danger text-normal d-block">本活動已於 6/14 結束，不再開放表單填寫任務回報。</em>
+          <a class="btn btn-success mt-3 mt-sm-0"
+            href="https://hackmd.io/@YmcMgo-NSKOqgTGAjl_5tg/ryar-vGOd/%2FNdGKchTeRBqbkTMiQ2HSmw" target="_blank">
+            點此進入活動說明
+          </a>
+        </div>
+      </h1>
+
+      <div class="bg-light p-3">
+        <div class="
+              row
+              justify-content-center justify-content-sm-between
+              align-items-center
+              g-2
+            ">
+          <div class="col-auto">
+            依姓名搜尋：<input type="text" v-model="search" />
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-primary btn-sm ms-md-2" @click="showFollow=true" v-if="!showFollow">
+              查看追蹤({{follow.length}})
+            </button>
+            <button class="btn btn-secondary btn-sm ms-2" @click="showFollow=false,search=''" v-if="showFollow||search">
+              顯示全部
+            </button>
+          </div>
+        </div>
+        <hr />
+        <div class="row justify-content-between">
+          <div class="col-12 col-md-8">
+            <div class="row g-0">
+              <div class="col-12 col-md-auto">
+                總計參與人數：<code class="fw-bold fs-5"> {{num[0]}} 人</code>
+                。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <table class="table text-center caption-top">
+          <caption>
+            各週完成度：
+          </caption>
+          <thead>
+            <tr>
+              <th>主線任務一</th>
+              <th>主線任務二</th>
+              <th>最終設計稿</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{num[1]}}</td>
+              <td>{{num[2]}}</td>
+              <td>{{num[3]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div v-if="search">
+        <!--    搜尋 平板以上    -->
+        <table class="
+              table
+              text-center
+              d-md-table d-none
+              table-striped table-bordered table-hover
+            ">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='ranking'">
+                排名
+                <span v-show="sortType=='ranking'" class="icon" :class="{'inverse': isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+              <th scope="col">姓名</th>
+              <th scope="col">追蹤</th>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='w1l'">
+                主線任務一
+                <span v-show="sortType=='w1l'" class="icon" :class="{'inverse': !isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='w2l'">
+                主線任務二
+                <span v-show="sortType=='w2l'" class="icon" :class="{'inverse': !isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='w3l'">
+                最終設計稿
+                <span v-show="sortType=='w3l'" class="icon" :class="{'inverse': !isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="table-content">
+            <tr v-for="(item,i) in sort.slice(pageStart, pageStart + countOfPage)">
+              <td>{{item.ranking}}</td>
+              <td>
+                {{item.name}} <br /><span class="text-muted">{{item.caption}}</span>
+              </td>
+              <td>
+                <button v-if="!item.isFollow" class="btn btn-sm btn-secondary" @click="addLS(item)">
+                  追蹤
+                </button>
+                <button v-else class="btn btn-sm btn-secondary" @click="removeLS(item)">
+                  取消追蹤
+                </button>
+              </td>
+              <td>
+                <a v-if="item.w1l>0" :href="item.w1url" target="_blank">
+                  LV{{item.w1l}}
+                </a>
+                <strong v-else>無資料</strong>
+              </td>
+              <td>
+                <a v-if="item.w2l>0" :href="item.w2url" target="_blank">
+                  LV{{item.w2l}}
+                </a>
+                <strong v-else>無資料</strong>
+              </td>
+              <td>
+                <a v-if="item.w3l>0" :href="item.w3url" target="_blank">
+                  LV{{item.w3l}}
+                </a>
+                <strong v-else>無資料</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!--    搜尋 手機版    -->
+        <table class="
+              table
+              d-md-none
+              text-center
+              table-striped table-bordered table-hover
+            ">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='ranking'">
+                排名
+                <span v-show="sortType=='ranking'" class="icon" :class="{'inverse': isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+              <th scope="col">姓名</th>
+              <th scope="col">追蹤</th>
+            </tr>
+          </thead>
+          <tbody class="table-content">
+            <tr v-for="(item,i) in sort.slice(pageStart, pageStart + countOfPage)">
+              <td>{{item.ranking}}</td>
+              <td>
+                <a href="#" @click.prevent="openModal(item)">{{item.name}}</a>
+              </td>
+              <td>
+                <button v-if="!item.isFollow" class="btn btn-sm btn-secondary" @click="addLS(item)">
+                  追蹤
+                </button>
+                <button v-else class="btn btn-sm btn-secondary" @click="removeLS(item)">
+                  取消追蹤
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div v-else-if="showFollow==true">
+        <!--    追蹤中 平板以上    -->
+        <table class="
+              table
+              d-none d-md-table
+              text-center
+              table-striped table-bordered table-hover
+            ">
+          <thead class="table-secondary">
+            <tr>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='ranking'">
+                排名
+                <span v-show="sortType=='ranking'" class="icon" :class="{'inverse': isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+              <th scope="col">姓名</th>
+              <th scope="col">追蹤</th>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='w1l'">
+                主線任務一
+                <span v-show="sortType=='w1l'" class="icon" :class="{'inverse': !isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='w2l'">
+                主線任務二
+                <span v-show="sortType=='w2l'" class="icon" :class="{'inverse': !isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='w3l'">
+                最終設計稿
+                <span v-show="sortType=='w3l'" class="icon" :class="{'inverse': !isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="table-content">
+            <tr v-for="(item,i) in sort.slice(pageStart, pageStart + countOfPage)">
+              <td>{{item.ranking}}</td>
+              <td>
+                {{item.name}}
+                <br /><span class="text-muted">{{item.caption}}</span>
+              </td>
+              <td>
+                <button v-if="!item.isFollow" class="btn btn-sm btn-secondary" @click="addLS(item)">
+                  追蹤
+                </button>
+                <button v-else class="btn btn-sm btn-secondary" @click="removeLS(item)">
+                  取消追蹤
+                </button>
+              </td>
+              <td>
+                <a v-if="item.w1l>0" :href="item.w1url" target="_blank">
+                  LV{{item.w1l}}
+                </a>
+                <strong v-else>無資料</strong>
+              </td>
+              <td>
+                <a v-if="item.w2l>0" :href="item.w2url" target="_blank">
+                  LV{{item.w2l}}
+                </a>
+                <strong v-else>無資料</strong>
+              </td>
+              <td>
+                <a v-if="item.w3l>0" :href="item.w3url" target="_blank">
+                  LV{{item.w3l}}
+                </a>
+                <strong v-else>無資料</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!--    追蹤中 手機版    -->
+        <table class="
+              table
+              d-md-none
+              text-center
+              table-striped table-bordered table-hover
+            ">
+          <thead class="table-secondary">
+            <tr>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='ranking'">
+                排名
+                <span v-show="sortType=='ranking'" class="icon" :class="{'inverse': isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+              <th scope="col">姓名</th>
+              <th scope="col">追蹤</th>
+            </tr>
+          </thead>
+          <tbody class="table-content">
+            <tr v-for="(item,i) in sort.slice(pageStart, pageStart + countOfPage)">
+              <td>{{item.ranking}}</td>
+              <td>
+                <a href="#" @click.prevent="openModal(item)">{{item.name}}</a>
+              </td>
+              <td>
+                <button v-if="!item.isFollow" class="btn btn-sm btn-secondary" @click="addLS(item)">
+                  追蹤
+                </button>
+                <button v-else class="btn btn-sm btn-secondary" @click="removeLS(item)">
+                  取消追蹤
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div v-else>
+        <!--    所有成員 平板以上    -->
+        <table class="
+              table
+              d-none d-md-table
+              text-center
+              table-striped table-bordered table-hover
+            ">
+          <thead class="table-success">
+            <tr>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='ranking'">
+                排名
+                <span v-show="sortType=='ranking'" class="icon" :class="{'inverse': isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+              <th scope="col">姓名</th>
+              <th scope="col">追蹤</th>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='w1l'">
+                主線任務一
+                <span v-show="sortType=='w1l'" class="icon" :class="{'inverse': !isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='w2l'">
+                主線任務二
+                <span v-show="sortType=='w2l'" class="icon" :class="{'inverse': !isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='w3l'">
+                最終設計稿
+                <span v-show="sortType=='w3l'" class="icon" :class="{'inverse': !isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="table-content">
+            <tr v-for="(item,i) in sort.slice(pageStart, pageStart + countOfPage)">
+              <td>{{item.ranking}}</td>
+              <td>
+                {{item.name}} <br />
+                <span class="text-muted">{{item.caption}}</span>
+              </td>
+              <td>
+                <button v-if="!item.isFollow" class="btn btn-sm btn-secondary" @click="addLS(item)">
+                  追蹤
+                </button>
+                <button v-else class="btn btn-sm btn-secondary" @click="removeLS(item)">
+                  取消追蹤
+                </button>
+              </td>
+              <td>
+                <a v-if="item.w1l>0" :href="item.w1url" target="_blank">
+                  LV{{item.w1l}}
+                </a>
+                <strong v-else>無資料</strong>
+              </td>
+              <td>
+                <a v-if="item.w2l>0" :href="item.w2url" target="_blank">
+                  LV{{item.w2l}}
+                </a>
+                <strong v-else>無資料</strong>
+              </td>
+              <td>
+                <a v-if="item.w3l>0" :href="item.w3url" target="_blank">
+                  LV{{item.w3l}}
+                </a>
+                <strong v-else>無資料</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!--    所有成員 手機版    -->
+        <table class="
+              table
+              d-md-none
+              text-center
+              table-striped table-bordered table-hover
+            ">
+          <thead class="table-success">
+            <tr>
+              <th scope="col" class="click" @click="isReverse = !isReverse,sortType='ranking'">
+                排名
+                <span v-show="sortType=='ranking'" class="icon" :class="{'inverse': isReverse }">
+                  <i class="fas fa-angle-up text-danger"></i>
+                </span>
+              </th>
+              <th scope="col">姓名</th>
+              <th scope="col">追蹤</th>
+            </tr>
+          </thead>
+          <tbody class="table-content">
+            <tr v-for="(item,i) in sort.slice(pageStart, pageStart + countOfPage)">
+              <td>{{item.ranking}}</td>
+              <td>
+                <a href="#" @click.prevent="openModal(item)">{{item.name}}</a>
+              </td>
+              <td>
+                <button v-if="!item.isFollow" class="btn btn-sm btn-secondary" @click="addLS(item)">
+                  追蹤
+                </button>
+                <button v-else class="btn btn-sm btn-secondary" @click="removeLS(item)">
+                  取消追蹤
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--   分頁區(僅所有人員處有，搜尋及追蹤處無置入)   -->
+      <nav class="navigation" v-if="totalPage>5&&!search&&!showFollow">
+        <ul class="pagination justify-content-center">
+          <li :class="{'disabled': (currPage === 1)}" class="page-item" @click.prevent="setPage(currPage-1)">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item" v-if="currPage>1">
+            <a href="#" class="page-link">...</a>
+          </li>
+          <template v-if="totalPage>currPage+4">
+            <li class="page-item" v-for="n in 5" :value="n + currPage" :key="n"
+              :class="{'active':currPage==n + currPage-1}" @click.prevent="setPage(n + currPage-1)">
+              <a class="page-link" href="#"> {{n + currPage-1}} </a>
+            </li>
+          </template>
+          <template v-else>
+            <li class="page-item" @click.prevent="setPage(totalPage-4)" :class="{'active':currPage==totalPage-4}">
+              <a class="page-link" href="#"> {{totalPage-4}} </a>
+            </li>
+            <li class="page-item" @click.prevent="setPage(totalPage-3)" :class="{'active':currPage==totalPage-3}">
+              <a class="page-link" href="#"> {{totalPage-3}} </a>
+            </li>
+            <li class="page-item" @click.prevent="setPage(totalPage-2)" :class="{'active':currPage==totalPage-2}">
+              <a class="page-link" href="#"> {{totalPage-2}} </a>
+            </li>
+            <li class="page-item" @click.prevent="setPage(totalPage-1)" :class="{'active':currPage==totalPage-1}">
+              <a class="page-link" href="#"> {{totalPage-1}} </a>
+            </li>
+            <li class="page-item" @click.prevent="setPage(totalPage)" :class="{'active':currPage==totalPage}">
+              <a class="page-link" href="#"> {{totalPage}} </a>
+            </li>
+          </template>
+          <li class="page-item" v-if="totalPage>currPage+4">
+            <a href="#" class="page-link">...</a>
+          </li>
+          <li :class="{'disabled': (currPage === totalPage)}" class="page-item" @click.prevent="setPage(currPage+1)">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!--  手機版 modal  -->
+    <div class="modal fade" id="userDetail" tabindex="-1" aria-labelledby="userDetail-label" role="dialog"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center">戰報細節</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <p>姓名：<strong>{{user.name}}</strong></p>
+            <p class="text-muted">{{user.caption}}</p>
+            <div class="row">
+              <p>
+                主線任務一：
+                <a v-if="user.w1url" :href="user.w1url">LV{{user.w1l}}</a>
+                <strong v-else>無資料</strong>
+              </p>
+              <p>
+                主線任務二：
+                <a v-if="user.w2url" :href="user.w2url">LV{{user.w2l}}</a>
+                <strong v-else>無資料</strong>
+              </p>
+              <p>
+                最終設計稿：
+                <a v-if="user.w3url" :href="user.w3url">LV{{user.w3l}}</a>
+                <strong v-else>無資料</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        userData: [],
+        isReverse: true,
+        sortType: "ranking",
+        search: "",
+        searchRet: [],
+        follow: [],
+        showFollow: false,
+        dataKey: 0,
+        user: "",
+        currPage: 1,
+        countOfPage: 20,
+      },
+      watch: {
+        search() {
+          if (this.search) {
+            this.showFollow = false;
+            const ret = [];
+            this.userData.forEach((item) => {
+              if (item.name.indexOf(this.search) !== -1) {
+                ret.push(item);
+              }
+            });
+            this.searchRet = ret;
+          }
+        },
+        showFollow() {
+          if (this.showFollow) {
+            this.search = "";
+          }
+        },
+      },
+      computed: {
+        sort() {
+          var vm = this;
+          let kind = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+          vm.userData.forEach((item) => {
+            if (item.w1url) {
+              item.w1l = item.w1l.replace("LV", "");
+            } else {
+              item.w1l = 0;
+            }
+            if (item.w2url) {
+              item.w2l = item.w2l.replace("LV", "");
+            } else {
+              item.w2l = 0;
+            }
+            if (item.w3url) {
+              item.w3l = item.w3l.replace("LV", "");
+            } else {
+              item.w3l = 0;
+            }
+            item.store =
+              parseInt(item.w1l) + parseInt(item.w2l) + parseInt(item.w3l);
+            switch (item.store) {
+              case 9:
+                item.ranking = 1;
+                kind[0]++;
+                break;
+              case 8:
+                item.ranking = 2;
+                kind[1]++;
+                break;
+              case 7:
+                item.ranking = 3;
+                kind[2]++;
+                break;
+              case 6:
+                item.ranking = 4;
+                kind[3]++;
+                break;
+              case 5:
+                item.ranking = 5;
+                kind[4]++;
+                break;
+              case 4:
+                item.ranking = 6;
+                kind[5]++;
+                break;
+              case 3:
+                item.ranking = 7;
+                kind[6]++;
+                break;
+              case 2:
+                item.ranking = 8;
+                kind[7]++;
+                break;
+              case 1:
+                item.ranking = 9;
+                kind[8]++;
+                break;
+              case 0:
+                item.ranking = 10;
+                kind[9]++;
+                break;
+              default:
+                break;
+            }
+          });
+
+          vm.userData.forEach((item) => {
+            switch (item.ranking) {
+              case 1:
+                item.caption = `wow！您當前的排名是前 ${(
+                  (kind[0] / vm.num[0]) *
+                  100
+                ).toFixed(2)} %！恭喜畢業！`;
+                break;
+              case 2:
+                item.caption = `唷！您當前的排名是前 ${(
+                  ((kind[0] + kind[1]) / vm.num[0]) *
+                  100
+                ).toFixed(2)} %！期待您做出最終設計稿哦！`;
+                break;
+              case 3:
+                item.caption = `嘿！您當前的排名是前 ${(
+                  ((kind[0] + kind[1] + kind[2]) / vm.num[0]) *
+                  100
+                ).toFixed(2)} %！請加油快做出最終設計稿哦！`;
+                break;
+              case 4:
+                item.caption = `哦～您當前的排名是前 ${(
+                  ((kind[0] + kind[1] + kind[2] + kind[3]) / vm.num[0]) *
+                  100
+                ).toFixed(2)} %！快結束了～`;
+                break;
+              case 5:
+                item.caption = `欸！您當前的排名是前 ${(
+                  ((kind[0] + kind[1] + kind[2] + kind[3] + kind[4]) /
+                    vm.num[0]) *
+                  100
+                ).toFixed(2)} % ！加油加油！`;
+                break;
+              case 6:
+                item.caption = `嗨！您當前的排名是前 ${(
+                  ((kind[0] +
+                    kind[1] +
+                    kind[2] +
+                    kind[3] +
+                    kind[4] +
+                    kind[5]) /
+                    vm.num[0]) *
+                  100
+                ).toFixed(2)} % ！`;
+                break;
+              case 7:
+                item.caption = `加油！您當前的排名是前 ${(
+                  ((kind[0] +
+                    kind[1] +
+                    kind[2] +
+                    kind[3] +
+                    kind[4] +
+                    kind[5] +
+                    kind[6]) /
+                    vm.num[0]) *
+                  100
+                ).toFixed(2)} % ！`;
+                break;
+              case 8:
+                item.caption = `一起 coding 到半夜就可以追上前面的人了！！`;
+                break;
+              case 9:
+                item.caption = `加油加油！已經有人畢業了！快趕進度哩！`;
+                break;
+              case 10:
+                item.caption = `同學衝鴨！已經有人畢業了！快點開始寫主線任務吧！`;
+                break;
+              default:
+                break;
+            }
+          });
+          if (vm.showFollow) {
+            var sortData = vm.follow.sort(function (a, b) {
+              var a = a[vm.sortType];
+              var b = b[vm.sortType];
+              if (vm.isReverse) {
+                return a - b;
+              } else {
+                return b - a;
+              }
+            });
+          } else if (vm.search) {
+            var sortData = vm.searchRet.sort(function (a, b) {
+              var a = a[vm.sortType];
+              var b = b[vm.sortType];
+              if (vm.isReverse) {
+                return a - b;
+              } else {
+                return b - a;
+              }
+            });
+          } else if (!vm.search && !vm.showFollow) {
+            var sortData = vm.userData.sort(function (a, b) {
+              var a = a[vm.sortType];
+              var b = b[vm.sortType];
+              if (vm.isReverse) {
+                return a - b;
+              } else {
+                return b - a;
+              }
+            });
+          }
+          return sortData;
+        },
+        num() {
+          let arr = [];
+          let total = 0;
+          let i = 0;
+          let j = 0;
+          let k = 0;
+          this.userData.forEach((item) => {
+            total++;
+            if (item.w1url) {
+              i++;
+            }
+            if (item.w2url) {
+              j++;
+            }
+            if (item.w3url) {
+              k++;
+            }
+          });
+          arr.push(total, i, j, k);
+          return arr;
+        },
+        currentData() {
+          return this.isFollow ? this.follow : this.searchData;
+        },
+        pageStart() {
+          return (this.currPage - 1) * this.countOfPage;
+        },
+        totalPage() {
+          return Math.ceil(this.currentData.length / this.countOfPage);
+        },
+        searchData() {
+          if (this.search.trim().length === 0) return this.userData;
+          this.showFollow = false;
+          this.currPage = 1;
+          return this.userData.filter(
+            (item) => item.name.indexOf(this.search) !== -1
+          );
+        },
+      },
+      methods: {
+        setPage(num) {
+          if (num <= 1) this.currPage = 1;
+          else if (num >= this.totalPage) this.currPage = this.totalPage;
+          else this.currPage = num;
+        },
+        openModal(item) {
+          var myModal = new bootstrap.Modal(
+            document.getElementById("userDetail")
+          );
+          myModal.toggle();
+          this.user = item;
+        },
+        getData() {
+          const vm = this;
+          $.getJSON(
+            "https://raw.githubusercontent.com/hexschool/live-bootstrap5-21-api/master/data.json",
+            function (res) {
+              res.forEach((item) => {
+                vm.userData.push({
+                  name: item.name,
+                  w1l: item.week1,
+                  w1url: item.week1Url,
+                  w2l: item.week2,
+                  w2url: item.week2Url,
+                  w3l: item.week3,
+                  w3url: item.week3Url,
+                  ranking: 0,
+                  store: 0,
+                  caption: "",
+                  isFollow: false,
+                });
+              });
+              vm.getLS();
+            }
+          );
+        },
+        getLS() {
+          const vm = this;
+          const data = JSON.parse(localStorage.getItem("data")) || [];
+          if (data) {
+            vm.userData.forEach((item) => {
+              data.forEach((itm) => {
+                if (item.name == itm.name) {
+                  item.isFollow = true;
+                  vm.follow.push(item);
+                }
+              });
+            });
+          }
+          vm.dataKey += 1;
+        },
+        removeLS(item) {
+          item.isFollow = false;
+          const i = this.follow.findIndex((it) => {
+            return it.name === item.name;
+          });
+          this.follow.splice(i, 1);
+          localStorage.setItem("data", JSON.stringify(this.follow));
+          this.dataKey += 1;
+        },
+        addLS(item) {
+          item.isFollow = true;
+          this.follow.push(item);
+          localStorage.setItem("data", JSON.stringify(this.follow));
+          this.dataKey += 1;
+        },
+      },
+      created() {
+        this.getData();
+      },
+    });
+  </script>
+</body>
+
+</html>
