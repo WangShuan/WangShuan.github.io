@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The F2E - 90秒小遊戲</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./css/all.css" />
+</head>
+
+<body>
+
+  <body>
+    <div class="mask">
+      <div class="list">
+        <h2 id="start">開始遊戲</h2>
+        <h2 id="Introduction">遊戲說明</h2>
+        <div class="Introduction">
+          <span>使用鍵盤左右鍵操控菇菇角色，<br />
+            藍球是純淨水源，吸收後可幫助菇菇扎根，<br />
+            黃球是淨化水源(每吃一次無敵五秒 效果可疊加)<br />
+            吃下後將無條件吸收所有種類的水源，<br />
+            綠球是邪惡水源(吃到後菇菇的身體會變色)，<br />
+            若吃到超過 3 次菇菇即死亡，<br />
+            幸運存活者90內即可成功幫助菇菇扎根！</span>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="game">
+        <div class="time">
+          <span>剩餘時間</span>
+          <h1 id="time">90s</h1>
+        </div>
+        <div class="life">
+          剩餘死亡次數:
+          <span id="life">3</span>
+        </div>
+        <div id="again">再玩一次</div>
+        <div id="p1">
+          <img src="https://github.com/WangShuan/F2E-90sGame/blob/main/img/person.png?raw=true" alt="香菇角色" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>

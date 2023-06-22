@@ -1,0 +1,172 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.8;
+  z-index: 10000;
+  text-align: center;
+}
+
+.list {
+  width: 30vw;
+  height: auto;
+  border: 2px dotted white;
+  margin: calc(50vh - 150px) auto;
+  padding: 10px;
+}
+
+.list > h2 {
+  color: white;
+  margin: 15px auto;
+}
+
+.list > h2:hover {
+  background-color: gray;
+  color: black;
+  cursor: pointer;
+}
+
+.game {
+  width: 100%;
+  height: 450px;
+  background: url("https://github.com/WangShuan/F2E-90sGame/blob/main/img/bg.png?raw=true")
+    no-repeat;
+  background-size: cover;
+}
+
+#p1 > img {
+  height: 100px;
+}
+
+#p1 {
+  position: relative;
+  top: 300px;
+  width: 100px;
+  left: 100px;
+}
+
+.box {
+  margin: calc(50vh - 225px) auto;
+  width: 800px;
+  border: 1px solid whitesmoke;
+  height: 450px;
+}
+
+.time {
+  position: absolute;
+  bottom: calc(50vh - 275px);
+  left: calc(50vw - 50px);
+  width: 100px;
+  height: 100px;
+  background: rgb(0, 183, 255);
+  border: 2px solid white;
+  border-radius: 100px;
+  text-align: center;
+  color: white;
+}
+
+.time > span {
+  position: relative;
+  top: 20px;
+}
+
+.time > h1 {
+  position: relative;
+  top: 20px;
+}
+
+#again {
+  width: 110px;
+  height: 33px;
+  border: 2px solid white;
+  color: white;
+  font-size: 13px;
+  line-height: 33px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  top: 195px;
+  display: none;
+}
+
+#again:hover {
+  background: rgb(252, 2, 2);
+  color: rgb(250, 249, 249);
+  cursor: pointer;
+}
+
+.dot {
+  background: url("https://i.ibb.co/MsWH6Bk/water.png") no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  position: absolute;
+}
+
+.Introduction {
+  color: white;
+  background-color: rgb(46, 45, 45);
+  font-size: 15px;
+  padding: 10px;
+  display: none;
+}
+
+.hell {
+  filter: invert(100%);
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.super {
+  animation: fade 600ms infinite;
+  -webkit-animation: fade 600ms infinite;
+}
+
+.life {
+  position: absolute;
+  bottom: calc(50vh - 225px);
+  padding: 5px 10px;
+}
