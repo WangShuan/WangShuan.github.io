@@ -849,7 +849,102 @@ void main(){
       <template v-if="mounted$">${r.template}</template>
       <template v-else><div></div></template>
     `), t.setup = (s, e) => { var p; const y = Zt(!1); return ia(() => { y.value = !0 }), Promise.resolve(((p = r.setup) == null ? void 0 : p.call(r, s, e)) || {}).then(h => typeof h != "function" ? { ...h, mounted$: y } : (...n) => { if (y.value) { const c = h(...n); return c.children === null || typeof c.children == "string" ? Ft(c.type, c.props, c.children, c.patchFlag, c.dynamicProps, c.shapeFlag) : qn(c) } else return qn("div", yl(e.attrs, { key: "placeholder-key" })) }) }, ol.set(r, t), t
-} const uT = { __name: "P5Wrapper.client", props: ["sketch"], setup(r) { const s = r.sketch; return (e, y) => { const p = ch("P5"); return Ht(), yn(p, { sketch: Vt(s) }, null, 8, ["sketch"]) } } }; const cT = lT(uT), dT = { class: "font-monospace text-center position-relative py-5", id: "background-section" }, fT = Ch('<div class="init-bg mx-auto p-3"><h2 class="mb-3 lh-base">嗨👋<br>我是前端工程師 - 雅萱</h2><p class="mx-3 mb-0"> 我是一位來自嘉義、北漂的網頁前端工程師<br> 受到全端工程師老公的啟發<br> 於 2019 年 2 月踏入前端領域<br> 並持續深耕在這個精彩的領域 💻<br><br> 曾於 2021/05-2021/07 間<br> 在線上程式學習單位 - 六角學院擔任助教<br> 協助學員們解決程式開發上的問題<br> 並分享自己的學習經驗 ✨<br><br> 接著在 2021/07-2022/12 間<br> 加入三角點品牌顧問公司，擔任前端工程師<br> 除了提供 UI/UX 指導外<br> 同時負責了多個專案的管理和執行 💪<br><br> 自 2023 年起<br> 轉為自由接案工作者，與全端工程師老公合作<br> 致力於提供客製化的網頁開發解決方案<br> 如果您對於網站開發、前端技術有任何需求<br> 歡迎隨時與我聯繫 📫<br> 期待與您共同創造出更多精彩的網頁作品 🙏 </p></div>', 1), hT = { class: "set-bg" }, pT = { __name: "AboutMe", setup(r) { const t = s => { s.setup = () => { const e = document.getElementById("background-section"); s.createCanvas(e.offsetWidth, e.offsetHeight), s.noStroke(), s.colorMode(s.HSB, 360, 100, 100, 100); for (let y = 0; y < s.width; y += 50)for (let p = 0; p < s.height; p += 50) { let h = s.map(y, 0, s.width, 0, 360), n = s.color((h + p + s.frameCount) / 2 % 360, 50, 100, 20); s.fill(n), s.rect(y, p, 1500) } }, s.draw = () => { for (let e = 0; e < s.width; e += 50)for (let y = 0; y < s.height; y += 50) { let p = s.map(e, 0, s.width, 0, 360), h = s.color((p + y + s.frameCount) / 2 % 360, 50, 100, 20); s.fill(h), s.rect(e, y, s.mouseX / 5) } }, s.windowResized = () => { const e = document.getElementById("background-section"); s.resizeCanvas(e.offsetWidth, e.offsetHeight) } }; return (s, e) => { const y = cT; return Ht(), ar("div", dT, [fT, Ft("div", hT, [Mt(y, { sketch: t })])]) } } }, mT = { class: "font-monospace text-center bg-light pt-5" }, yT = Ft("h2", { class: "fs-4 mb-5" }, "於三角點品牌顧問公司開發之專案", -1), gT = { class: "d-flex align-items-center w-100 overflow-scroll" }, vT = { class: "text-muted" }, bT = { class: "ratio ratio-16x9 my-2" }, _T = { class: "overflow-scroll rounded border border-dark border-5" }, wT = ["src"], xT = ["href"], ET = { __name: "TrigProjects", setup(r) { const t = Zt([{ url: "https://www.trusteebio.com.tw/", subtitle: "2022.12 SHOPLINE Customization", title: "珍信賴生醫 TRUSTEE BioMed", image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/trustee.png", color: "#00A7E1" }, { url: "https://www.excebest.com.tw/", subtitle: "2022.12 Front-end web development", title: "鷹銓工業 Excebest", image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/excebest.png", color: "#14a83b" }, { url: "https://system.phargoods.com/", subtitle: "2022.10 Front-end web development", title: "健生活叫貨系統", image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/tssd.png", color: "#70c94e" }, { url: "https://www.yodee.com.tw/", subtitle: "2022.08 SHOPLINE Customization", title: "優迪國際 Yodee", image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/yodee.png?t=2023-08-30T06%3A02%3A41.005Z", color: "#69b7ee" }, { url: "https://www.phargoods.com/", subtitle: "2022.07 SHOPLINE Customization", title: "藥師健生活 Phargoods+", image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/2c.png", color: "#70c94e" }, { url: "https://studiodoe.com/", subtitle: "2022.05 Front-end web development", title: "朵墨國際 Studio Doe", image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/sd.png?t=2023-08-30T05%3A41%3A58.156Z", color: "#274380" }, { url: "https://studiodoe.com/mag", subtitle: "2022.05 Front-end web development", title: "朵墨國際 DOE MAG", image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/doemag.png", color: "#a29b96" }, { url: "https://tw-eshop.addiction-beauty.com/", subtitle: "2021.12 SHOPLINE Customization", title: "台灣高絲 ADDICTION", image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/addiction.png?t=2023-08-30T06%3A03%3A25.528Z", color: "#000" }, { url: "https://www.yuren.fish/", subtitle: "2021.11 SHOPLINE Customization", title: "漁仁企業 YUREN", image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/yuren.png?t=2023-08-30T06%3A02%3A32.517Z", color: "#205fa8" }, { url: "https://www.sysskin.com/", subtitle: "2021.10 SHOPLINE Customization", title: "香港商蕾迪欣 SYS Skin", image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/sys.png", color: "#15284B" }, { url: "https://www.pawn.bar/", subtitle: "2021.08 Front-end web development", title: "當吧 Pawn Bar", image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/pawnbar.png?t=2023-08-30T06%3A03%3A02.900Z", color: "#bf9d5a" }, { url: "https://www.phargoods.com/pages/home", subtitle: "2021.07 SHOPLINE Customization", title: "健生活 Phargoods+", image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/2b.png?t=2023-08-30T06%3A03%3A41.792Z", color: "#70c94e" }]); return (s, e) => (Ht(), ar("section", mT, [yT, Ft("div", gT, [(Ht(!0), ar(nr, null, dl(Vt(t), y => (Ht(), ar("div", { class: "col-11 col-md-4 col-xxl-3 mx-4 pb-5", key: y.title }, [Ft("span", vT, Es(y.subtitle), 1), Ft("div", bT, [Ft("div", _T, [Ft("img", { class: "img-fluid w-100", src: y.image_url }, null, 8, wT)])]), Ft("a", { style: Bo({ color: y.color }), class: "fw-bold fs-5", target: "_blank", href: y.url }, Es(y.title), 13, xT)]))), 128))])])) } }; const ST = { class: "container font-monospace my-5 px-4" }, jT = Ft("h2", { class: "fs-4 mb-5 text-center" }, "個人前端專案", -1), TT = { key: 0, class: "my-3 my-md-5" }, AT = { class: "col-md-5" }, CT = ["src"], OT = { class: "col-md-7" }, MT = { class: "pt-3" }, kT = { class: "mb-2 d-flex align-items-md-center flex-column-reverse flex-md-row" }, PT = { class: "mb-2 mb-md-0 me-md-2 small" }, LT = { class: "d-flex" }, RT = { class: "badge fw-normal bg-secondary text-light me-1" }, DT = { class: "mb-3 fs-5 mb-0" }, IT = { class: "mb-3" }, NT = ["href"], FT = ["href"], UT = { __name: "MyProjects", async setup(r) { let t, s; const e = pp(), { data: y } = ([t, s] = ag(async () => Pb("projects", async () => { const { data: h } = await e.from("projects").select().order("created_at", { ascending: !1 }); return h })), t = await t, s(), t), p = h => { const n = new Date(h), c = { year: "numeric", month: "long", day: "numeric" }; return new Intl.DateTimeFormat("en-US", c).format(n) }; return (h, n) => (Ht(), ar("div", ST, [jT, (Ht(!0), ar(nr, null, dl(Vt(y), (c, d) => (Ht(), ar("div", { class: "row gx-3 align-items-center", key: c.id }, [d !== 0 ? (Ht(), ar("hr", TT)) : Tg("", !0), Ft("div", AT, [Ft("img", { src: c.img_url, class: "img-fluid border", alt: "..." }, null, 8, CT)]), Ft("div", OT, [Ft("div", MT, [Ft("div", kT, [Ft("p", PT, Es(p(c.created_at)), 1), Ft("div", LT, [(Ht(!0), ar(nr, null, dl(c.tags, f => (Ht(), ar("span", RT, "#" + Es(f), 1))), 256))])]), Ft("h3", DT, Es(c.name), 1), Ft("p", IT, Es(c.description), 1), Ft("a", { href: c.source, class: "btn btn-fill-primary rounded-pill me-2" }, "原始碼", 8, NT), Ft("a", { href: c.view, class: "btn btn-fill-dark rounded-pill" }, "線上觀看", 8, FT)])])]))), 128))])) } }, BT = {}, GT = { class: "bg-dark px-5 py-3 text-light container-fluid text-center" }, VT = Ch('<p class="mb-0"><a class="link-light" href="mailto:loveabo103103@gmail.com" target="_blank">Email</a> / <a class="link-light" href="https://github.com/WangShuan" target="_blank">GitHub</a> / <a class="link-light" href="https://hackmd.io/@WangShuan" target="_blank">HackMD</a> / <a class="link-light" href="https://www.cakeresume.com/loveabo103103" target="_blank">Resume</a></p><p class="m-0">© 2023 All rights reserved.</p>', 2), HT = [VT]; function $T(r, t) { return Ht(), ar("footer", GT, HT) } const zT = zu(BT, [["render", $T]]), WT = {}; function qT(r, t) { const s = aT, e = pT, y = ET, p = UT, h = zT; return Ht(), ar(nr, null, [Mt(s), Mt(e), Mt(y), Mt(p), Mt(h)], 64) } const YT = zu(WT, [["render", qT]]), XT = {
+} const uT = { __name: "P5Wrapper.client", props: ["sketch"], setup(r) { const s = r.sketch; return (e, y) => { const p = ch("P5"); return Ht(), yn(p, { sketch: Vt(s) }, null, 8, ["sketch"]) } } }; const cT = lT(uT), dT = { class: "font-monospace text-center position-relative py-5", id: "background-section" }, fT = Ch('<div class="init-bg mx-auto p-3"><h2 class="mb-3 lh-base">嗨👋<br>我是前端工程師 - 雅萱</h2><p class="mx-3 mb-0"> 我是一位來自嘉義、北漂的網頁前端工程師<br> 受到全端工程師老公的啟發<br> 於 2019 年 2 月踏入前端領域<br> 並持續深耕在這個精彩的領域 💻<br><br> 曾於 2021/05-2021/07 間<br> 在線上程式學習單位 - 六角學院擔任助教<br> 協助學員們解決程式開發上的問題<br> 並分享自己的學習經驗 ✨<br><br> 接著在 2021/07-2022/12 間<br> 加入三角點品牌顧問公司，擔任前端工程師<br> 除了提供 UI/UX 指導外<br> 同時負責了多個專案的管理和執行 💪<br><br> 自 2023 年起<br> 轉為自由接案工作者，與全端工程師老公合作<br> 致力於提供客製化的網頁開發解決方案<br> 如果您對於網站開發、前端技術有任何需求<br> 歡迎隨時與我聯繫 📫<br> 期待與您共同創造出更多精彩的網頁作品 🙏 </p></div>', 1), hT = { class: "set-bg" }, pT = { __name: "AboutMe", setup(r) { const t = s => { s.setup = () => { const e = document.getElementById("background-section"); s.createCanvas(e.offsetWidth, e.offsetHeight), s.noStroke(), s.colorMode(s.HSB, 360, 100, 100, 100); for (let y = 0; y < s.width; y += 50)for (let p = 0; p < s.height; p += 50) { let h = s.map(y, 0, s.width, 0, 360), n = s.color((h + p + s.frameCount) / 2 % 360, 50, 100, 20); s.fill(n), s.rect(y, p, 1500) } }, s.draw = () => { for (let e = 0; e < s.width; e += 50)for (let y = 0; y < s.height; y += 50) { let p = s.map(e, 0, s.width, 0, 360), h = s.color((p + y + s.frameCount) / 2 % 360, 50, 100, 20); s.fill(h), s.rect(e, y, s.mouseX / 5) } }, s.windowResized = () => { const e = document.getElementById("background-section"); s.resizeCanvas(e.offsetWidth, e.offsetHeight) } }; return (s, e) => { const y = cT; return Ht(), ar("div", dT, [fT, Ft("div", hT, [Mt(y, { sketch: t })])]) } } }, mT = { class: "font-monospace text-center bg-light pt-5" }, yT = Ft("h2", { class: "fs-4 mb-5" }, "近期精選案例", -1), gT = { class: "d-flex align-items-center w-100 overflow-scroll" }, vT = { class: "text-muted" }, bT = { class: "ratio ratio-16x9 my-2" }, _T = { class: "overflow-scroll rounded border border-dark border-5" }, wT = ["src"], xT = ["href"], ET = {
+  __name: "TrigProjects", setup(r) {
+    const t = Zt([
+      {
+        url: "https://someday7727293.shoplineapp.com/",
+        subtitle: "2025.01 SHOPLINE Customization",
+        title: "ROBINMAY",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/rm.png",
+        color: "#000"
+      },
+      {
+        url: "https://marxbiotech.com/",
+        subtitle: "2025.01 Full-stack web development",
+        title: "火星生技 MARX Biotech Co.",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/marx.png",
+        color: "#ef3340"
+      },
+      {
+        url: "https://www.chatzutang.com/",
+        subtitle: "2024.10 SHOPLINE Customization",
+        title: "茶籽堂 chatzutang",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/chatzutang.png",
+        color: "#f09e00"
+      },
+      {
+        url: "https://trig.studio/",
+        subtitle: "2024.09 Front-end web development",
+        title: "三角點 Trig Studio",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/trig.png",
+        color: "#666"
+      },
+      {
+        url: "https://tw-eshop.addiction-beauty.com/pages/fall-2024-collection",
+        subtitle: "2024.08 SHOPLINE Customization",
+        title: "台灣高絲 ADDICTION",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/addiction.png",
+        color: "#000"
+      },
+      {
+        url: "https://www.blooming.tw/",
+        subtitle: "2024.07 SHOPLINE Customization",
+        title: "Blooming Art",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/blooming.png",
+        color: "#7F6E69"
+      },
+      {
+        url: "https://www.trusteebio.com.tw/",
+        subtitle: "2022.12 SHOPLINE Customization",
+        title: "珍信賴生醫 TRUSTEE BioMed",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/trustee.png",
+        color: "#00A7E1"
+      },
+      {
+        url: "https://www.yodee.com.tw/",
+        subtitle: "2022.08 SHOPLINE Customization",
+        title: "優迪國際 Yodee",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/yodee.png?t=2023-08-30T06%3A02%3A41.005Z",
+        color: "#69b7ee"
+      },
+      {
+        url: "https://www.phargoods.com/",
+        subtitle: "2022.07 SHOPLINE Customization",
+        title: "藥師健生活 Phargoods+",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/2c.png",
+        color: "#70c94e"
+      },
+      {
+        url: "https://studiodoe.com/",
+        subtitle: "2022.05 Front-end web development",
+        title: "朵墨國際 Studio Doe",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/sd.png?t=2023-08-30T05%3A41%3A58.156Z",
+        color: "#274380"
+      },
+      {
+        url: "https://studiodoe.com/mag",
+        subtitle: "2022.05 Front-end web development",
+        title: "朵墨國際 DOE MAG",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/doemag.png",
+        color: "#a29b96"
+      },
+      {
+        url: "https://www.yuren.fish/",
+        subtitle: "2021.11 SHOPLINE Customization",
+        title: "漁仁企業 YUREN",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/yuren.png?t=2023-08-30T06%3A02%3A32.517Z",
+        color: "#205fa8"
+      },
+      {
+        url: "https://www.phargoods.com/pages/home",
+        subtitle: "2021.07 SHOPLINE Customization",
+        title: "健生活 Phargoods+",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/2b.png?t=2023-08-30T06%3A03%3A41.792Z",
+        color: "#70c94e"
+      }]); return (s, e) => (Ht(), ar("section", mT, [yT, Ft("div", gT, [(Ht(!0), ar(nr, null, dl(Vt(t), y => (Ht(), ar("div", { class: "col-11 col-md-4 col-xxl-3 mx-4 pb-5", key: y.title }, [Ft("span", vT, Es(y.subtitle), 1), Ft("div", bT, [Ft("div", _T, [Ft("img", { class: "img-fluid w-100", src: y.image_url }, null, 8, wT)])]), Ft("a", { style: Bo({ color: y.color }), class: "fw-bold fs-5", target: "_blank", href: y.url }, Es(y.title), 13, xT)]))), 128))])]))
+  }
+}; const ST = { class: "container font-monospace my-5 px-4" }, jT = Ft("h2", { class: "fs-4 mb-5 text-center" }, "個人前端專案", -1), TT = { key: 0, class: "my-3 my-md-5" }, AT = { class: "col-md-5" }, CT = ["src"], OT = { class: "col-md-7" }, MT = { class: "pt-3" }, kT = { class: "mb-2 d-flex align-items-md-center flex-column-reverse flex-md-row" }, PT = { class: "mb-2 mb-md-0 me-md-2 small" }, LT = { class: "d-flex" }, RT = { class: "badge fw-normal bg-secondary text-light me-1" }, DT = { class: "mb-3 fs-5 mb-0" }, IT = { class: "mb-3" }, NT = ["href"], FT = ["href"], UT = { __name: "MyProjects", async setup(r) { let t, s; const e = pp(), { data: y } = ([t, s] = ag(async () => Pb("projects", async () => { const { data: h } = await e.from("projects").select().order("created_at", { ascending: !1 }); return h })), t = await t, s(), t), p = h => { const n = new Date(h), c = { year: "numeric", month: "long", day: "numeric" }; return new Intl.DateTimeFormat("en-US", c).format(n) }; return (h, n) => (Ht(), ar("div", ST, [jT, (Ht(!0), ar(nr, null, dl(Vt(y), (c, d) => (Ht(), ar("div", { class: "row gx-3 align-items-center", key: c.id }, [d !== 0 ? (Ht(), ar("hr", TT)) : Tg("", !0), Ft("div", AT, [Ft("img", { src: c.img_url, class: "img-fluid border", alt: "..." }, null, 8, CT)]), Ft("div", OT, [Ft("div", MT, [Ft("div", kT, [Ft("p", PT, Es(p(c.created_at)), 1), Ft("div", LT, [(Ht(!0), ar(nr, null, dl(c.tags, f => (Ht(), ar("span", RT, "#" + Es(f), 1))), 256))])]), Ft("h3", DT, Es(c.name), 1), Ft("p", IT, Es(c.description), 1), Ft("a", { href: c.source, class: "btn btn-fill-primary rounded-pill me-2" }, "原始碼", 8, NT), Ft("a", { href: c.view, class: "btn btn-fill-dark rounded-pill" }, "線上觀看", 8, FT)])])]))), 128))])) } }, BT = {}, GT = { class: "bg-dark px-5 py-3 text-light container-fluid text-center" }, VT = Ch('<p class="mb-0"><a class="link-light" href="mailto:loveabo103103@gmail.com" target="_blank">Email</a> / <a class="link-light" href="https://github.com/WangShuan" target="_blank">GitHub</a> / <a class="link-light" href="https://hackmd.io/@WangShuan" target="_blank">HackMD</a> / <a class="link-light" href="https://www.cakeresume.com/loveabo103103" target="_blank">Resume</a></p><p class="m-0">© 2023 All rights reserved.</p>', 2), HT = [VT]; function $T(r, t) { return Ht(), ar("footer", GT, HT) } const zT = zu(BT, [["render", $T]]), WT = {}; function qT(r, t) { const s = aT, e = pT, y = ET, p = UT, h = zT; return Ht(), ar(nr, null, [Mt(s), Mt(e), Mt(y), Mt(p), Mt(h)], 64) } const YT = zu(WT, [["render", qT]]), XT = {
   __name: "nuxt-error-page", props: { error: Object }, setup(r) {
     const s = r.error; (s.stack || "").split(`
 `).splice(1).map(m => ({ text: m.replace("webpack:/", "").replace(".vue", ".js").trim(), internal: m.includes("node_modules") && !m.includes(".cache") || m.includes("internal") || m.includes("new Promise") })).map(m => `<span class="stack${m.internal ? " internal" : ""}">${m.text}</span>`).join(`
