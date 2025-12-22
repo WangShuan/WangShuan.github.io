@@ -854,9 +854,16 @@ void main(){
     const t = Zt([
       {
         url: "https://www.robinmaybag.com/",
-        subtitle: "2025.01 SHOPLINE Customization",
+        subtitle: "2025.09 SHOPLINE Customization",
         title: "ROBINMAY",
         image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/rm.png",
+        color: "#000"
+      },
+      {
+        url: "https://tw-eshop.addiction-beauty.com/",
+        subtitle: "2025.09 SHOPLINE Customization",
+        title: "台灣高絲 ADDICTION",
+        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/addiction.png",
         color: "#000"
       },
       {
@@ -879,13 +886,6 @@ void main(){
         title: "三角點 Trig Studio",
         image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/trig.png",
         color: "#666"
-      },
-      {
-        url: "https://tw-eshop.addiction-beauty.com/pages/fall-2024-collection",
-        subtitle: "2024.08 SHOPLINE Customization",
-        title: "台灣高絲 ADDICTION",
-        image_url: "https://bxilghzflorwqyvhpwsv.supabase.co/storage/v1/object/public/projects-images/addiction.png",
-        color: "#000"
       },
       {
         url: "https://www.blooming.tw/",
