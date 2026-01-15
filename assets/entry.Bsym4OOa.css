@@ -227,9 +227,8 @@ h1 {
 .footer {
   display: flex;
   flex-direction: column;
-  height: 300px;
-  margin: 20px auto;
-  max-width: 1200px
+  height: 400px;
+  padding: 60px calc(50vw - 600px);
 }
 
 .footer .footer-title {
@@ -312,7 +311,7 @@ h2 {
 
   .footer {
     gap: 30px;
-    padding: 0 30px;
+    padding: 60px 30px;
   }
 
   .footer .footer-email {
