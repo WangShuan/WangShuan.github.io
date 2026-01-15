@@ -34,7 +34,15 @@ a {
   cursor: pointer;
   font-size: 14px;
   font-weight: 700;
-  padding: 6px 12px
+  padding: 6px 12px;
+  box-shadow: 0 0 10px var(--primary);
+  transition: all .3s;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 0px var(--primary);
+    transition: all .3s;
+  }
 }
 
 section {
@@ -120,7 +128,8 @@ h1 {
   height: auto;
   overflow: scroll;
   position: relative;
-  width: 100%
+  width: 100%;
+  cursor: all-scroll;
 }
 
 .recent-projects .project-image img {
@@ -229,6 +238,7 @@ h1 {
   flex-direction: column;
   height: 400px;
   padding: 60px calc(50vw - 600px);
+  background: var(--bg-section);
 }
 
 .footer .footer-title {
@@ -269,9 +279,13 @@ h2 {
   color: var(--primary)
 }
 
+.footer a:hover {
+  text-decoration: underline;
+}
+
 @media(max-width:1279px) {
   section {
-    margin: 80px auto;
+    margin: 60px auto;
     padding: 0 30px;
   }
 
