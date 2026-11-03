@@ -1,0 +1,1 @@
+import{c as e}from"#entry";var t=e(`/images/buildings/c1.jpg`),n=e(`/images/buildings/c2.jpg`),r=e(`/images/buildings/c3.jpg`),i=e(`/images/buildings/c4.jpg`),a=e(`/images/buildings/c5.jpg`),o=e(`/images/buildings/c6.jpg`);export{n as a,r as i,a as n,t as o,i as r,o as t};

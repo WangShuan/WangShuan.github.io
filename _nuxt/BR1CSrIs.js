@@ -1,0 +1,1 @@
+import{B as e,u as t}from"./DV6CxREb.js";var n=()=>{let n=e(),r=t();return new URL(r.path,n.public.siteUrl).href};export{n as t};

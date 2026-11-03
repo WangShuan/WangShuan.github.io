@@ -1,0 +1,1 @@
+import{kt as e,st as t}from"./DV6CxREb.js";import{t as n}from"#entry";var r={},i={class:`arrow`};function a(n,r){return e(),t(`span`,i,`→`)}var o=Object.assign(n(r,[[`render`,a],[`__scopeId`,`data-v-fe93c6bf`]]),{__name:`Arrow`});export{o as t};

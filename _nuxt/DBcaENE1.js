@@ -1,0 +1,1 @@
+var e=(e,t)=>{let n=document.querySelector(e);return window.getComputedStyle(n).getPropertyValue(t)};export{e as t};
